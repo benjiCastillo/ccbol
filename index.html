@@ -12,15 +12,26 @@
     <link rel="stylesheet" href="css/aos.css">
 	<!--libs -->
 	<!--slider-->
-		<link rel="stylesheet" type="text/css" href="fonts/feather/style.css">
+	<link rel="stylesheet" type="text/css" href="fonts/feather/style.css">
 	<link rel="stylesheet" href="css/demo.css">
 	<link rel="stylesheet" href="css/component.css">
 	<link rel="stylesheet" href="css/particles.css">
 	<script src="js/modernizr.custom.js"></script>
 	<!--slider-->
+
+	<style>
+		.text-fecha,.text-congreso,.text-titulo-tema,.logo-ccbol,.timer{
+			visibility: hidden;
+		}	
+	</style>
 </head>
 <body>
-
+		<div class="bg-image">
+			<div class="count-particles">
+			<!-- particles.js container -->
+			<div id="particles-js"></div>
+			</div>
+		</div>
 <!--nav-->
 <nav class="navbar navbar-nemo ">
 	<div class="container">
@@ -34,7 +45,7 @@
 
 			<!-- YOUR LOGO -->
 			<a class="navbar-brand" href="#">
-				<img src="images/logo.svg" class="img-responsive">
+				<img src="images/logosmall.svg" class="img-responsive">
 			</a>
 		</div>
 
@@ -51,29 +62,25 @@
 </nav>
 <!--fin de nav-->
 
-<!--comienzo del slider-->
-<article class="container-slider">
+		<!-- Grid -->
 		<section class="slider">
 			<div class="slide slide--current" data-content="content-1">
-				<div class="slide__mover">
+				<div class="slide__mover" id="slide-n1">
 					<div class="zoomer flex-center">
-						<!--<img class="zoomer__image " src="images/iphone.png" alt="iPhone" />-->
-						<div class="preview button--zoom">
-							<img src="images/logo.svg" data-aos="fade-in" data-aos-duration="2500" data-aos-delay="1000" class="logo-ccbol" alt="logo CCBOL" />
+						<!--<img class="zoomer__image" src="images/iphone.png" alt="iPhone" />-->
+						<div class="preview">
+							<img src="images/logo.svg" data-aos="zoom-out-down" class="img-ccbol" alt="iPhone app preview" />
+							<p style="color:white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam autem soluta commodi fuga odit assumenda tempore praesentium magni explicabo quasi sit necessitatibus voluptatibus ex aperiam fugit, maxime voluptatem quia dolore?</p>
 							<div class="zoomer__area zoomer__area--size-2"></div>
+
 						</div>
-						<span class="slide__title text-ccbol">
-							<p class="heading-pre-suf text-center text-uppercase text-congreso" data-aos-delay="200" data-aos="flip-left">CONGRESO NACIONAL DE CIENCIAS DE LA COMPUTACIÓN DE BOLIVIA 	</p>
-							<h1 class="heading-text text-titulo-tema" data-aos="fade-right" data-aos-delay="600">Internet de Todo</h1>
-							<p class="sub-heading text-fecha" data-aos="fade-left" data-aos-delay="800" data-aos-anchor="">18 - 22 de Septiembre 2017</p>
-						</span>
 					</div>
 					
 				</div>
-				
+				<h2 class="slide__title"><span>The Classy</span> iPhone 6</h2>
 			</div>
-			<div class="slide" data-content="content-2">
-				<div class="slide__mover">
+			<div class="slide"  data-content="content-2">
+				<div class="slide__mover" id="slide-n2">
 					<div class="zoomer flex-center">
 						<img class="zoomer__image" src="images/ipad.png" alt="iPad Mini" />
 						<div class="preview">
@@ -96,57 +103,19 @@
 				</div>
 				<h2 class="slide__title"><span>The Amazing</span> MacBook</h2>
 			</div>
-			<div class="slide" data-content="content-4">
-				<div class="slide__mover">
-					<div class="zoomer flex-center">
-						<img class="zoomer__image" src="images/imac.png" alt="iMac" />
-						<div class="preview">
-							<img src="images/imac-content-preview.jpg" alt="iMac app preview" />
-							<div class="zoomer__area zoomer__area--size-5"></div>
-						</div>
-					</div>
-				</div>
-				<h2 class="slide__title"><span>The Glorious</span> iMac</h2>
-			</div>
-			<div class="slide" data-content="content-5">
-				<div class="slide__mover">
-					<div class="zoomer flex-center">
-						<img class="zoomer__image" src="images/apple-watch.png" alt="Apple Watch" />
-						<div class="preview rounded">
-							<img src="images/apple-watch-content-preview.png" alt="Apple Watch app preview" />
-							<div class="zoomer__area zoomer__area--size-1"></div>
-						</div>
-					</div>
-				</div>
-				<h2 class="slide__title"><span>The Fabulous</span> Apple Watch</h2>
-			</div>
-
 			<button class="button button--nav-prev"><i class="icon icon--arrow-left"></i><span class="text-hidden">Previous product</span></button>
-			
 			<button class="button button--nav-next"><i class="icon icon--arrow-right"></i><span class="text-hidden">Next product</span></button>
-			<!--<nav class="slider__nav">
-				<button class="button button--zoom"><i class="icon icon--zoom"></i><span>Ver Mas</span></button>
-			</nav>-->
+			<button class="button button--zoom"><i class="icon icon--zoom"></i><span class="text-hidden">View details</span></button>	
 		</section>
 		<!-- /slider-->
 		<section class="content">
-			<section class="bg-image">
-				<!-- count particles -->
-				<div class="count-particles">
-				<!-- particles.js container -->
-				<div id="particles-js"></div>
-
-				</div>
-			</section>
 			<div class="content__item" id="content-1">
-				<img class="content__item-img rounded-right" src="images/logo.svg" alt="Apple Watch Content" />
+				<img class="content__item-img rounded-right" src="images/iphone-content.png" alt="Apple Watch Content" />
 				<div class="content__item-inner">
-					<h2 class="text-color">Presentación</h2>
-					<p data-aos="flip-up"> Anualmente las Carreras de Ingeniería de Sistemas e Informática de las Universidades Bolivianas, llevan a cabo el <b> CONGRESO NACIONAL DE CIENCIAS DE LA COMPUTACIÓN DE BOLIVIA (CCBol) </b>, evento iniciado en 1994, con el objetivo de promover un foro de difusión científica y tecnológica con expertos de los sectores académico, productivo para el intercambio de conocimientos en esta área del conocimiento. Por la continua organización y participación masiva de delegaciones de las diferentes universidades (promedio de 2000 participantes), dicho evento se ha convertido en uno de los más importantes para el avance las Ciencias de la Computación en Bolivia.</p>
-							<p data-aos="flip-up">Este año 2017 y por tercera oportunidad, la carrera de <b>Ingeniería de Sistemas de la Facultad de Tecnología de la Universidad Mayor, Real y Pontificia de San Francisco Xavier de Chuquisaca</b>, organizara la realización del <b> XXIV CONGRESO NACIONAL DE CIENCIAS DE LA COMPUTACIÓN - CCBol 2017</b>, del 18 al 22 de septiembre, en la ciudad de <b>Sucre - Bolivia</b>, renovando el objetivo de reunir académicos y estudiantes dedicados a la educación superior de pre y posgrado, así como profesionales nacionales y extranjeros dedicados a ésta área del conocimiento.<br></p>
-							<p data-aos="flip-up" >En esta ocasión el evento tendrá la característica especial de abordar la temática de <b>Internet de Todo IoT</b>, así como su aplicación a la actividad económica y social, sirviendo tanto para conocer sus alcances, posibilidades y experiencias prácticas obtenidas por los especialistas. El programa de CCBol2017 alternara la presentación de cursos tutoriales, conferencias, mesas redondas, demostraciones, exposiciones, exposiciones y discusiones relacionadas con la temática del Congreso.
-							<br>
-					</p>
+					<h2>The iPhone 6</h2>
+					<h3>Incredible performance for powerful apps</h3>
+					<p>Built on 64-bit desktop-class architecture, the new A8 chip delivers more power, even while driving a larger display. The M8 motion coprocessor efficiently gathers data from advanced sensors and a new barometer. And with increased battery life, iPhone 6 lets you do more, for longer than ever.</p>
+					<p><a href="https://www.apple.com/iphone-6/technology/">Learn more about this technology &xrarr;</a></p>
 				</div>
 			</div>
 			<div class="content__item" id="content-2">
@@ -167,61 +136,55 @@
 					<p><a href="https://www.apple.com/macbook/design/">Learn more about the design &xrarr;</a></p>
 				</div>
 			</div>
-			<div class="content__item" id="content-4">
-				<img class="content__item-img rounded-right" src="images/imac-content.jpg" alt="iMac Content" />
-				<div class="content__item-inner">
-					<h2>The iMac</h2>
-					<h3>Engineered to the very last detail</h3>
-					<p>Every new Mac comes with Photos, iMovie, GarageBand, Pages, Numbers, and Keynote. So you can be creative with your photos, videos, music, documents, spreadsheets, and presentations right from the start. You also get great apps for email, surfing the web, sending texts, and making FaceTime calls — there’s even an app for finding new apps.</p>
-					<p><a href="https://www.apple.com/imac/built-in-apps/">Learn more about the iMac's features &xrarr;</a></p>
-				</div>
-			</div>
-			<div class="content__item" id="content-5">
-				<img class="content__item-img rounded-right" src="images/apple-watch-content.png" alt="Apple Watch Content" />
-				<div class="content__item-inner">
-					<h2>The Apple Watch</h2>
-					<h3>Entirely new ways to stay in touch</h3>
-					<p>Apple Watch makes all the ways you're used to communicating more convenient. And because it sits right on your wrist, it can add a physical dimension to alerts and notifications. For example, you’ll feel a gentle tap with each incoming message. Apple Watch also lets you connect with your favorite people in fun, spontaneous ways — like sending a tap, a sketch, or even your heartbeat. </p>
-					<p><a href="https://www.apple.com/watch/new-ways-to-connect/">Learn more about new ways to connect &xrarr;</a></p>
-				</div>
-			</div>
 			<button class="button button--close"><i class="icon icon--circle-cross"></i><span class="text-hidden">Close content</span></button>
 		</section>
-<!--fin del slider-->
-</article>
 
-<!--<section class="container">
+<section class="container">
+
 	<div class="row">
-		<div class="col-md-6">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae dolorum nesciunt minus magni nemo dolore nihil, dolor esse provident ducimus. Odio excepturi eum explicabo ad iure, at eligendi ipsum in.
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero hic, minus dignissimos quisquam. Perspiciatis veritatis nobis consequuntur consectetur error. Id et, eum voluptatibus perspiciatis possimus ut similique cumque totam esse.</div>
-			<div>Illum iste deserunt excepturi, ipsam laudantium cum repellat molestias itaque expedita reprehenderit in, odit, eveniet, eius quasi alias saepe nesciunt! Neque saepe numquam fugit, deleniti voluptates ea commodi placeat. Aut!</div>
-			<div>Veritatis maiores eveniet optio, suscipit perspiciatis ea magnam aperiam dicta animi, voluptate sit natus voluptas voluptatem commodi officia minus soluta fugiat totam aliquam in repellat distinctio. Beatae veritatis, tempore magni?</div>
-			<div>Dolores beatae, odio, esse porro, in dolorem obcaecati placeat unde eius a magni quod? Quis temporibus quaerat atque nam, aperiam aut ad modi eos, exercitationem, ratione totam fuga dolorem. Pariatur!</div>
-			<div>Architecto esse labore, id temporibus unde provident explicabo voluptate dolor ea quod pariatur voluptates alias vel nulla ad illo optio veritatis quisquam eligendi deleniti dolores officiis. Voluptate ipsam, maiores quo.</div>
-			<div>Quos nisi, molestiae officiis, quisquam, a nulla saepe asperiores aut voluptates repellat nemo illo aperiam architecto! Distinctio, ut nisi nihil, porro magni voluptatem laborum aperiam expedita facere non molestias, at!</div>
-			<div>Quae voluptatibus cumque laboriosam fugiat pariatur neque, explicabo unde est tempora dolore, molestias sequi obcaecati. Amet, quibusdam. Non eum enim dolor numquam nisi molestiae, odio eligendi, officia quas incidunt, ut!</div>
-			<div>Deserunt, tempore, unde! Veniam, dignissimos laudantium impedit libero sed maiores cumque odio incidunt officiis minima nostrum, vel, dolorum ad molestiae distinctio? Optio laboriosam, nulla mollitia porro ad perferendis praesentium facilis.</div>
-			<div>Fugit necessitatibus voluptas, repellat repudiandae atque modi repellendus fugiat quas deleniti accusamus culpa, similique expedita tempore sint tempora et? Expedita quisquam atque laboriosam qui iusto eveniet accusamus nesciunt a natus.</div>
-			<div>Accusantium fuga unde fugit dicta in nihil ad, delectus deleniti ea earum, asperiores nemo libero iusto itaque, ab natus autem dolor magnam! Commodi dolore illo repellendus blanditiis, pariatur consequuntur quam!</div>
-		</div>
-		<div class="col-md-6">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus eaque culpa alias necessitatibus quo iusto doloremque totam ut excepturi accusantium assumenda explicabo, tempore quibusdam. Nostrum tempora omnis laudantium iste odit.
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro praesentium placeat reiciendis beatae eveniet, saepe ipsum minus ut maiores suscipit. Architecto, nobis nulla deleniti quidem unde commodi velit consequuntur sunt?</div>
-			<div>Non voluptates officia, neque, laudantium pariatur maiores natus amet! Ratione aliquid tenetur libero, illum id ab quibusdam quidem obcaecati ipsam qui deserunt reiciendis amet labore tempore sunt! Accusantium, eos, magni.</div>
-			<div>Laboriosam deleniti at beatae voluptatum nisi debitis esse enim placeat illo blanditiis ipsum adipisci, inventore totam quas voluptatibus temporibus cumque illum asperiores alias vitae, natus voluptate in facilis nobis! Beatae.</div>
-			<div>Incidunt consequuntur quas, sunt minus, tenetur sed cumque saepe quis, repellat delectus nulla voluptatem itaque officia aspernatur. Delectus, animi optio omnis dolor iusto neque, vitae autem facilis alias maiores repellat!</div>
-			<div>Labore hic vitae tempore ipsum, ullam voluptate. Nesciunt dignissimos architecto molestias, nemo explicabo aut dolorum! Fugit voluptatibus, earum asperiores odit sed commodi, illum impedit, non quia ex vero consequuntur similique.</div>
-			<div>Ex distinctio, tempora provident assumenda recusandae dignissimos amet sed explicabo a laudantium, voluptatibus nihil blanditiis nemo aperiam iste ratione quisquam optio ab debitis. Nobis esse, pariatur aspernatur ad quos totam!</div>
-			<div>Blanditiis, iusto, quis. Aperiam temporibus, facilis inventore dignissimos harum illo. Voluptas temporibus officiis, molestias aliquid blanditiis aut laudantium architecto repellat quis porro ex sed corporis modi quibusdam quidem ut consectetur.</div>
-			<div>Est possimus natus nostrum beatae quo expedita neque, debitis excepturi! Vel quidem quaerat inventore. Cumque, odio. Optio, autem hic veritatis soluta officiis fugit blanditiis ab sint aut labore. Distinctio, illum.</div>
-			<div>Eum laborum perferendis necessitatibus libero, iste illo. Fuga numquam perspiciatis non repudiandae impedit laudantium, magni doloremque voluptas at illum nam velit error odit laboriosam! Tenetur repellendus nobis ipsam dolorem obcaecati?</div>
-			<div>Libero numquam est eaque, officiis fuga, rerum incidunt, voluptas illo deleniti iste ex dolorum, eos velit? Eos, quod tenetur consequuntur delectus, pariatur ipsum totam aliquid fuga minima. Atque, dolores, doloremque.</div>
+
+		
+		<div class="col-md-12">
+			<center>
+				<div class="timer">
+					<span class="text-color">Faltan </span>
+       				 <span id="pagerTimer"></span>
+				</div>
+			</center>
+			<span id="hora"></span><br>
+			<span id="dia"></span><br>
+			<span id="minuto"></span><br>
+			<span id="segundo"></span><br>
 		</div>
 	</div>
-</section>-->
+
+	<div class="row" id="presentacion">
+		<div class="col-md-8">
+			<div class="section-heading">
+				<h1 class="heading-text" data-aos="fade-up">Presentación</h1>
+				<hr class="lines">
+			</div>
+			<p data-aos="flip-up"> Anualmente las Carreras de Ingeniería de Sistemas e Informática de las Universidades Bolivianas, llevan a cabo el <b> CONGRESO NACIONAL DE CIENCIAS DE LA COMPUTACIÓN DE BOLIVIA (CCBol) </b>, evento iniciado en 1994, con el objetivo de promover un foro de difusión científica y tecnológica con expertos de los sectores académico, productivo para el intercambio de conocimientos en esta área del conocimiento. Por la continua organización y participación masiva de delegaciones de las diferentes universidades (promedio de 2000 participantes), dicho evento se ha convertido en uno de los más importantes para el avance las Ciencias de la Computación en Bolivia.</p>
+			<p data-aos="flip-up">Este año 2017 y por tercera oportunidad, la carrera de <b>Ingeniería de Sistemas de la Facultad de Tecnología de la Universidad Mayor, Real y Pontificia de San Francisco Xavier de Chuquisaca</b>, organizara la realización del <b> XXIV CONGRESO NACIONAL DE CIENCIAS DE LA COMPUTACIÓN - CCBol 2017</b>, del 18 al 22 de septiembre, en la ciudad de <b>Sucre - Bolivia</b>, renovando el objetivo de reunir académicos y estudiantes dedicados a la educación superior de pre y posgrado, así como profesionales nacionales y extranjeros dedicados a ésta área del conocimiento.<br></p>
+			<p data-aos="flip-up" >En esta ocasión el evento tendrá la característica especial de abordar la temática de <b>Internet de Todo IoT</b>, así como su aplicación a la actividad económica y social, sirviendo tanto para conocer sus alcances, posibilidades y experiencias prácticas obtenidas por los especialistas. El programa de CCBol2017 alternara la presentación de cursos tutoriales, conferencias, mesas redondas, demostraciones, exposiciones, exposiciones y discusiones relacionadas con la temática del Congreso.
+			<br></p>
+		</div>
+		<div class="col-md-4">
+			<img src="images/logo.svg" data-aos="zoom-out-down" class="img-ccbol" class="img-responsive" alt="">
+			<img src="images/usfx.png" data-aos="zoom-out-down" class="img-usfx" class="img-responsive" alt="">
+			<img src="images/sistemas.jpg" data-aos="zoom-out-down" class="img-sistemas" class="img-responsive" alt="">
+		</div>
+	</div>
 
 
+</section>
+
+
+		<footer class="row">
+			<div class="col-md-offset-2 col-md-10">
+				<p>CCBOL - Sucre 2017</p>
+			</div>
+		</footer>
 </body>
 <!--libs -->
 <script src="js/jquery-1.11.3.min.js"></script>
@@ -241,5 +204,92 @@
 AOS.init({
 });
 //AOS.refresh();
+</script>
+<script src="js/velocity.min.js"></script>
+<script src="js/velocity.ui.js"></script>
+<script src="js/countdown.min.js"></script>
+
+<script>
+// var $fecha = $(".text-fecha");
+//     $congreso = $(".text-congreso");
+//     $tituloTema = $(".text-titulo-tema");
+// 	$logo = $(".logo-ccbol");
+// 	$fIni = $(".fecha-inicio");
+// 	$fFin = $(".fecha-fin");
+var $timer = $(".timer");
+
+var mySequence = [
+	// { e: $logo, p: { translateX: [ 0, 1000 ]},o:{ visibility:"initial"} },
+    // { e: $congreso, p:  "transition.flipXIn",o:{ visibility:"initial", duration: 700} },
+    // { e: $tituloTema, p: "transition.expandIn",o:{ visibility:"initial"} },
+    // { e: $fecha, p: "transition.bounceLeftIn",o:{ visibility:"initial"} },
+	{ e: $timer, p: "transition.bounceUpIn",o:{ visibility:"initial"} }
+  ];
+
+$.Velocity.RunSequence(mySequence);
+
+
+    var timerId;
+
+
+    countdown.setLabels(
+    ' milisegundo| s| m :| hr| día| semana| mes| año| decada| siglo| milenio',
+    ' milisegundos| s| m :| hrs| días| semanas| meses| años| decadas| siglos| milenios',
+    ' ',
+    ' : ',
+    '',
+    function(n){ return n.toString(); });
+    timerId =
+      countdown(
+        //   actualizarReloj(),
+          new Date("December 15, 2017 12:57:30"),
+        function(ts) {
+        //    console.log(ts.toString());
+		//    var dia = ts.days.toString();	
+		//    var hora = ts.hours.toString();
+		//    var minuto = ts.minutes.toString()
+		//    var segundo = ts.seconds.toString();
+		//    console.log(ts)	
+          if(ts.toString() == ""){
+
+			// console.log(ts)
+
+            /*document.next.submit();*/
+            window.clearInterval(timerId);
+          }
+          document.getElementById('pagerTimer').innerHTML = ts.toHTML("span");
+		// document.getElementById('hora').innerHTML = hora;
+		// document.getElementById('minuto').innerHTML = minuto;
+		// document.getElementById('segundo').innerHTML = segundo;
+		// document.getElementById('dia').innerHTML = dia;
+		
+        //   document.getElementById('pagerTimer2').innerHTML = ts.toHTML("strong");
+        },
+        countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+    // later on this timer may be stopped
+    //window.clearInterval(timerId); 
+
+	// var interval = null
+	
+	// interval = setInterval(function(){$(
+	// 	".button--nav-next").trigger("click");
+	// 	// console.log("va");
+	// }, 3000);
+
+	// $(".button--close").click(function(){
+	// interval = setInterval(function(){$(
+	// 		".button--nav-next").trigger("click");
+	// 		// console.log("va");
+	// 	}, 3000);
+	// })
+
+	// $(".button--zoom").click(function(){
+	// 	clearInterval(interval);
+	// })
+
+	
+	
+	
+
 </script>
 </html>

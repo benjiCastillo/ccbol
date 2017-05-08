@@ -27,7 +27,7 @@
 }
 .navbar-brand {
   line-height: 30px;
-  height: 65px;
+  height: 53px;
   padding: 0px 15px;
 }
 .navbar-brand img {
@@ -102,16 +102,16 @@
     color: #fff !important;
   }
   .navbar-nav > li > a {
-    padding-top: 22px;
-    padding-bottom: 22px;
-    line-height: 30px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    line-height: 26px;
   }
 
 }
 
 @media (max-width: 768px) {
   .navbar-brand {
-    height: 55px;
+    height: 52px;
   }
 }
 
@@ -123,7 +123,39 @@
   
 }
 
-/* helper */
+
+/******************** SECTION HEADING ********************/
+.section-heading {
+  margin-bottom: 34px;
+}
+.section-heading .heading-text {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.section-heading .sub-heading {
+  font-size: 17px;
+  margin-top: 20px;
+  margin-bottom: 63px;
+}
+.section-heading .lines {
+  width: 6px;
+  position: relative;
+  margin-left: 34px;
+  margin-top: 15px;
+}
+.section-heading .lines:before,
+.section-heading .lines:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  width: 30px;
+}
+.section-heading .lines:before {
+  left: -34px;
+}
+.section-heading .lines:after {
+  right: -34px;
+}
 .heading-pre-suf {
   position: relative;
   display: inline-block;
@@ -144,4 +176,40 @@
 }
 .heading-pre-suf:after {
   right: -50px;
+}
+.text-center .lines {
+  margin: auto;
+}
+
+/*footer*/
+footer{
+    margin-top:150px; 
+    padding: 15px;
+    height: 65px;
+    border-top: 1px solid #efefef;
+}
+/*logos*/
+
+.img-ccbol, .img-sistemas{
+  max-width: 265px;
+  margin: 0 auto;
+  display: block;
+}
+.img-usfx{
+  max-width: 145px;
+  margin: 0 auto;
+  display: block;
+}
+/*background slider*/
+#slide-n2{
+  background-image:url("../images/bg-slide-2.svg");
+background-repeat: no-repeat;
+background-size: cover; 
+ background-position: center; 
+}
+#slide-n1{
+  background-image:url("../images/mirador4.jpg");
+background-repeat: no-repeat;
+background-size: cover; 
+ background-position: center; 
 }

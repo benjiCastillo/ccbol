@@ -5,6 +5,7 @@
 .logo-ccbol{
 	width: 350px;
 }
+
 .slider {
 	position: relative;
 	z-index: 200;
@@ -38,6 +39,7 @@
 .slide__mover {
 	position: relative;
 	z-index: 100;
+	min-height: 460px;
 }
 
 .slide__title {
@@ -93,13 +95,13 @@
 .button--nav-prev{
 	position: absolute;
     left: 30px;
-    top: 150px;
+    top: 215px;
     z-index: 1000;
 }
 .button--nav-next{
 	position: absolute;
     right: 30px;
-    top: 150px;
+    top: 215px;
     z-index: 1000;
 }
 
@@ -150,7 +152,7 @@
 .zoomer__area,
 .preview {
 	position: absolute;
-	top: 50%;
+	top: 33%;
 	left: 50%;
 	-webkit-transform: translate3d(-50%,-50%,0);
 	transform: translate3d(-50%,-50%,0);
@@ -197,7 +199,7 @@
 }
 
 .preview img {
-	display: block;
+	/*display: block;*/
 	border-radius: inherit;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
@@ -270,7 +272,7 @@
 }
 
 .content h2 {
-	font-size: 3.5em;
+	font-size: 2.5em;
 	font-weight: normal;
 	margin: 0;
 }
@@ -283,7 +285,7 @@
 }
 
 .content p {
-	font-size: 1.25em;
+	font-size: 16px;
 	line-height: 1.5;
 }
 
@@ -407,9 +409,11 @@
 	transition-duration: 1.7s;
 }
 .text-ccbol{
-	    margin-top: 380px;
+	    margin-top:250px;
 }
-
+.timer{
+	font-size: 26px;
+}
 /* Media Queries */
 @media screen and (max-width: 50em) {
 	.content__item {
@@ -446,7 +450,7 @@
 		top:20%;
 	}
 	.text-ccbol{
-		margin-top: 290px;
+		margin-top: 13%;
 	}
 	.text-congreso{
 		font-size: 16px;
@@ -456,5 +460,8 @@
 	}
 	.text-fecha{
 		font-size: 14px;
+	}
+	.timer{
+		font-size: 17px;
 	}
 }
