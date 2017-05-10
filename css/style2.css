@@ -109,11 +109,6 @@
 
 }
 
-@media (max-width: 768px) {
-  .navbar-brand {
-    height: 52px;
-  }
-}
 
 @media (min-width: 768px) and (max-width: 991px) {
   .navbar-nav > li > a {
@@ -167,7 +162,7 @@
 .heading-pre-suf:after {
   content: "";
   position: absolute;
-  top: 5px;
+  top: 12px;
   width: 40px;
   height: 13px;
 }
@@ -212,4 +207,22 @@ background-size: cover;
 background-repeat: no-repeat;
 background-size: cover; 
  background-position: center; 
+}
+/*texto primer slider*/
+.titulo-congreso{
+  color:white;text-shadow: 1px 2px 5px black;
+  font-size: 28px !important;
+}
+.lugar-fecha{
+  color:white;text-shadow: 1px 2px 5px black;
+  font-size: 18px !important
+}
+@media (max-width: 768px) {
+  .titulo-congreso{
+    font-size: 18px !important;
+  }
+  .lugar-fecha{
+
+    font-size: 16px !important
+  }
 }

@@ -18,9 +18,10 @@
 	<link rel="stylesheet" href="css/particles.css">
 	<script src="js/modernizr.custom.js"></script>
 	<!--slider-->
-
+	<!--fuente-->
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:300" rel="stylesheet">
 	<style>
-		.text-fecha,.text-congreso,.text-titulo-tema,.logo-ccbol,.timer{
+		.text-fecha,.text-congreso,.titulo-congreso,.lugar-fecha,.timer{
 			visibility: hidden;
 		}	
 	</style>
@@ -70,14 +71,14 @@
 						<!--<img class="zoomer__image" src="images/iphone.png" alt="iPhone" />-->
 						<div class="preview">
 							<img src="images/logo.svg" data-aos="zoom-out-down" class="img-ccbol" alt="iPhone app preview" />
-							<p style="color:white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam autem soluta commodi fuga odit assumenda tempore praesentium magni explicabo quasi sit necessitatibus voluptatibus ex aperiam fugit, maxime voluptatem quia dolore?</p>
+							<p class="titulo-congreso heading-pre-suf">CONGRESO NACIONAL DE CIENCIAS DE LA COMPUTACIÓN</p>
+							<p class="lugar-fecha">18 al 22 de Septiembre, Sucre, Bolivia</p>
 							<div class="zoomer__area zoomer__area--size-2"></div>
-
 						</div>
 					</div>
 					
 				</div>
-				<h2 class="slide__title"><span>The Classy</span> iPhone 6</h2>
+				<h2 class="slide__title">Sucre Te Espera!</h2>
 			</div>
 			<div class="slide"  data-content="content-2">
 				<div class="slide__mover" id="slide-n2">
@@ -89,7 +90,7 @@
 						</div>
 					</div>
 				</div>
-				<h2 class="slide__title"><span>The Fantastic</span> iPad Mini</h2>
+				<h2 class="slide__title">Internet of Everything</h2>
 			</div>
 			<div class="slide" data-content="content-3">
 				<div class="slide__mover">
@@ -101,7 +102,7 @@
 						</div>
 					</div>
 				</div>
-				<h2 class="slide__title"><span>The Amazing</span> MacBook</h2>
+				<h2 class="slide__title">The Amazing</h2>
 			</div>
 			<button class="button button--nav-prev"><i class="icon icon--arrow-left"></i><span class="text-hidden">Previous product</span></button>
 			<button class="button button--nav-next"><i class="icon icon--arrow-right"></i><span class="text-hidden">Next product</span></button>
@@ -110,9 +111,9 @@
 		<!-- /slider-->
 		<section class="content">
 			<div class="content__item" id="content-1">
-				<img class="content__item-img rounded-right" src="images/iphone-content.png" alt="Apple Watch Content" />
+				<img class="content__item-img rounded-right" src="images/logo.svg" alt="Apple Watch Content" />
 				<div class="content__item-inner">
-					<h2>The iPhone 6</h2>
+					<h2>CCBol2017</h2>
 					<h3>Incredible performance for powerful apps</h3>
 					<p>Built on 64-bit desktop-class architecture, the new A8 chip delivers more power, even while driving a larger display. The M8 motion coprocessor efficiently gathers data from advanced sensors and a new barometer. And with increased battery life, iPhone 6 lets you do more, for longer than ever.</p>
 					<p><a href="https://www.apple.com/iphone-6/technology/">Learn more about this technology &xrarr;</a></p>
@@ -141,20 +142,38 @@
 
 <section class="container">
 
-	<div class="row">
-
-		
-		<div class="col-md-12">
-			<center>
-				<div class="timer">
-					<span class="text-color">Faltan </span>
-       				 <span id="pagerTimer"></span>
+	<div class="row timer">
+		<div class="col-md-offset-3 col-md-6 ">
+			<section class="row t-timer">
+				<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
+					<div class="t-dia">
+						<span id="dia"></span><br>
+						<span class="tag-dia">DIAS</span>	
+					</div>
+						
 				</div>
-			</center>
-			<span id="hora"></span><br>
-			<span id="dia"></span><br>
-			<span id="minuto"></span><br>
-			<span id="segundo"></span><br>
+				<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
+					<div class="t-hora">
+						<span id="hora"></span><br>
+						<span class="tag-hora">HORAS</span>
+					</div>
+					
+				</div> 
+				<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
+					<div class="t-minuto">
+						<span id="minuto"></span><br>
+						<span class="tag-minuto">MINUTOS</span>
+					</div>
+					
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
+					<div class="t-segundo">
+						<span id="segundo"></span><br>
+						<span class="tag-segundo">SEGUNDOS</span>
+					</div>
+				</div>
+			</section>
+			
 		</div>
 	</div>
 
@@ -214,15 +233,15 @@ AOS.init({
 //     $congreso = $(".text-congreso");
 //     $tituloTema = $(".text-titulo-tema");
 // 	$logo = $(".logo-ccbol");
-// 	$fIni = $(".fecha-inicio");
-// 	$fFin = $(".fecha-fin");
+var	$tCongreso = $(".titulo-congreso");
+var	$lFecha = $(".lugar-fecha");
 var $timer = $(".timer");
 
 var mySequence = [
 	// { e: $logo, p: { translateX: [ 0, 1000 ]},o:{ visibility:"initial"} },
     // { e: $congreso, p:  "transition.flipXIn",o:{ visibility:"initial", duration: 700} },
-    // { e: $tituloTema, p: "transition.expandIn",o:{ visibility:"initial"} },
-    // { e: $fecha, p: "transition.bounceLeftIn",o:{ visibility:"initial"} },
+    { e: $tCongreso, p: "transition.expandIn",o:{ visibility:"initial"} },
+    { e: $lFecha, p: "transition.bounceLeftIn",o:{ visibility:"initial"} },
 	{ e: $timer, p: "transition.bounceUpIn",o:{ visibility:"initial"} }
   ];
 
@@ -242,13 +261,13 @@ $.Velocity.RunSequence(mySequence);
     timerId =
       countdown(
         //   actualizarReloj(),
-          new Date("December 15, 2017 12:57:30"),
+          new Date("September 18, 2017 12:57:30"),
         function(ts) {
         //    console.log(ts.toString());
-		//    var dia = ts.days.toString();	
-		//    var hora = ts.hours.toString();
-		//    var minuto = ts.minutes.toString()
-		//    var segundo = ts.seconds.toString();
+		   var dia = ts.days.toString();	
+		   var hora = ts.hours.toString();
+		   var minuto = ts.minutes.toString()
+		   var segundo = ts.seconds.toString();
 		//    console.log(ts)	
           if(ts.toString() == ""){
 
@@ -257,11 +276,11 @@ $.Velocity.RunSequence(mySequence);
             /*document.next.submit();*/
             window.clearInterval(timerId);
           }
-          document.getElementById('pagerTimer').innerHTML = ts.toHTML("span");
-		// document.getElementById('hora').innerHTML = hora;
-		// document.getElementById('minuto').innerHTML = minuto;
-		// document.getElementById('segundo').innerHTML = segundo;
-		// document.getElementById('dia').innerHTML = dia;
+        //   document.getElementById('pagerTimer').innerHTML = ts.toHTML("span");
+		document.getElementById('hora').innerHTML = hora;
+		document.getElementById('minuto').innerHTML = minuto;
+		document.getElementById('segundo').innerHTML = segundo;
+		document.getElementById('dia').innerHTML = dia;
 		
         //   document.getElementById('pagerTimer2').innerHTML = ts.toHTML("strong");
         },
@@ -269,23 +288,23 @@ $.Velocity.RunSequence(mySequence);
     // later on this timer may be stopped
     //window.clearInterval(timerId); 
 
-	// var interval = null
+	var interval = null
 	
-	// interval = setInterval(function(){$(
-	// 	".button--nav-next").trigger("click");
-	// 	// console.log("va");
-	// }, 3000);
+	interval = setInterval(function(){$(
+		".button--nav-next").trigger("click");
+		// console.log("va");
+	}, 5000);
 
-	// $(".button--close").click(function(){
-	// interval = setInterval(function(){$(
-	// 		".button--nav-next").trigger("click");
-	// 		// console.log("va");
-	// 	}, 3000);
-	// })
+	$(".button--close").click(function(){
+	interval = setInterval(function(){$(
+			".button--nav-next").trigger("click");
+			// console.log("va");
+		}, 5000);
+	})
 
-	// $(".button--zoom").click(function(){
-	// 	clearInterval(interval);
-	// })
+	$(".button--zoom").click(function(){
+		clearInterval(interval);
+	})
 
 	
 	
