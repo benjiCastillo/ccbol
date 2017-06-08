@@ -1,0 +1,21 @@
+.titulo_slide_2{
+    font-size: 40px;
+    /*text-shadow: -3px -1px 3px #483434;*/
+    color: #dedede;
+    text-align: center;
+    padding-top: 125px;
+    font-family: 'Comfortaa', cursive;
+}
+.text_slide_2{
+    font-size: 20px;
+    color: white;
+    padding-top: 28px;
+    font-family: 'Comfortaa', cursive;
+}
+.rayas{
+    width: 202px;
+    height: 26px;
+}
+.del{
+    font-family: 'Comfortaa', cursive;
+}
