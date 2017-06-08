@@ -157,8 +157,42 @@
 			<button class="button button--close"><i class="icon icon--circle-cross"></i><span class="text-hidden">Close content</span></button>
 		</section>
 
+		<div class="row timer">
+			<div class="col-md-offset-3 col-md-6 ">
+				<section class="row t-timer">
+					<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
+						<div class="t-dia">
+							<span id="dia"></span><br>
+							<span class="tag-dia">DIAS</span>	
+						</div>
+							
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
+						<div class="t-hora">
+							<span id="hora"></span><br>
+							<span class="tag-hora">HORAS</span>
+						</div>
+						
+					</div> 
+					<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
+						<div class="t-minuto">
+							<span id="minuto"></span><br>
+							<span class="tag-minuto">MINUTOS</span>
+						</div>
+						
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
+						<div class="t-segundo">
+							<span id="segundo"></span><br>
+							<span class="tag-segundo">SEGUNDOS</span>
+						</div>
+					</div>
+				</section>
+				
+			</div>
+		</div>
 
-<section ng-view></section>
+		<section ng-view></section>
 
 
 		<footer class="row">
@@ -199,5 +233,5 @@ AOS.init({
 	<script src="js/angular/angular.js"></script>
 	<script src="js/angular/angular-route.js"></script>
 	<script src="js/angular/app.js"></script>
-<script src="js/angular/controller/home-controller.js"></script>
+	<script src="js/angular/controller/home-controller.js"></script>
 </html>
