@@ -411,7 +411,7 @@
 }
 
 /*slider*/
-.text-fecha,.text-congreso,.titulo_slide_2,.rayas,.text_slide_2,.titulo-congreso,.lugar-fecha,.timer{
+.text-fecha,.text-congreso,.text-icons,.titulo-congreso,.lugar-fecha,.timer,.icon-1,.icon-2,.icon-3,.icon-4{
 	visibility: hidden;
 }	
 
@@ -468,16 +468,16 @@ footer{
 }
 /*background slider*/
 #slide-n2{
-  background-image:url("../images/bannerIT.png");
-background-repeat: no-repeat;
-background-size: cover; 
- background-position: center; 
+	background-image:url("../images/port.jpg");
+	background-repeat: no-repeat;
+	background-size: cover; 
+    background-position: center; 
 }
 #slide-n1{
-background-image:url("../images/port.jpg");
-background-repeat: no-repeat;
-background-size: cover; 
- background-position: center; 
+	background-image:url("../images/bannerIT.png");	
+	background-repeat: no-repeat;
+	background-size: cover; 
+ 	background-position: center; 
 }
 /*texto primer slider*/
 .titulo-congreso{

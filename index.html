@@ -68,31 +68,50 @@
 			<div class="slide slide--current" data-content="content-1">
 				<div class="slide__mover" id="slide-n1">
 					<div class="zoomer flex-center">
-						<!--<img class="zoomer__image" src="images/iphone.png" alt="iPhone" />-->
-						<div class="preview">
-							<img src="images/logo.svg" data-aos="zoom-out-down" class="img-ccbol" alt="iPhone app preview" />
-							<p class="titulo-congreso heading-pre-suf">CONGRESO NACIONAL DE CIENCIAS DE LA COMPUTACIÓN</p>
-							<p class="lugar-fecha">18 al 22 de Septiembre, Sucre, Bolivia</p>
-							<div class="zoomer__area zoomer__area--size-2"></div>
+						<div class="container-fluid contenedor-icons">
+							<div class="row">
+								<h3 class="text-center text-icons">INTERNET DE TODO</h3>
+								<div class="col-md-3 col-xs-3">
+									<img class="img-logo-idt icon-1" src="images/people.svg" alt="">
+									<br>
+									<br>
+									<span class="text-center text-b-icon icon-1">People</span>
+								</div>
+								<div class="col-md-3 col-xs-3">
+									<img class="img-logo-idt icon-2" src="images/cogs-white.svg" alt="">
+									<br>
+									<br>
+									<span class="text-center text-b-icon icon-2">Process</span>
+								</div>
+								<div class="col-md-3 col-xs-3">
+									<img class="img-logo-idt icon-3" src="images/database-white.svg" alt="">
+									<br>
+									<br>
+									<span class="text-center text-b-icon icon-3">Data</span>
+								</div>
+								<div class="col-md-3 col-xs-3">
+									<img class="img-logo-idt icon-4" src="images/everything.svg" alt="">
+									<br>
+									<br>
+									<span class="text-center text-b-icon icon-4">Things</span>
+								</div>
+							</div>
 						</div>
+
 					</div>
-					
 				</div>
 				<h2 class="slide__title">Sucre Te Espera!</h2>
 			</div>
 			<div class="slide"  data-content="content-2">
 				<div class="slide__mover" id="slide-n2">
 					<div class="zoomer flex-center">
-						<!--<img class="zoomer__image" src="images/ipad.png" alt="iPad Mini" />-->
-						<div class="preview" >
-							<P class="titulo_slide_2">INTERNET del TODO</P>
-							<img class="rayas" src="images/rayas.svg" alt="">
-							<p class="text_slide_2">
-								“Hacemos lo que hacemos normalmente, pero la digitalización nos permite hacerlo mejor o desarrollar productos mejores en nuestro sector.”
-							</p>
-							<!--<img src="images/ipad-content-preview.png" alt="iPad Mini app preview" />-->
-							<div class="zoomer__area zoomer__area--size-4"></div>
+						<div class="preview">
+							<img src="images/logo.svg" data-aos="zoom-out-down" class="img-ccbol" alt="iPhone app preview" />
+							<p class="titulo-congreso heading-pre-suf">CONGRESO NACIONAL DE CIENCIAS DE LA COMPUTACIÓN</p>
+							<p class="lugar-fecha">18 al 22 de Septiembre, Sucre, Bolivia</p>
+							<div class="zoomer__area zoomer__area--size-2"></div>
 						</div>
+						
 					</div>
 				</div>
 				<h2 class="slide__title">Internet del Todo</h2>
@@ -236,4 +255,94 @@ AOS.init({
 	<script src="js/angular/angular-route.js"></script>
 	<script src="js/angular/app.js"></script>
 	<script src="js/angular/controller/home-controller.js"></script>
+	<script>
+
+	var	$tCongreso = $(".titulo-congreso");
+	var	$lFecha = $(".lugar-fecha");
+	var $titu = $(".text-icons");
+	var $icon1 = $(".icon-1");
+	var $icon2 = $(".icon-2");
+	var $icon3 = $(".icon-3");
+	var $icon4 = $(".icon-4");
+	// var	$ima = $(".rayas");
+	// var	$text = $(".text_slide_2");
+	var $timer = $(".timer");
+
+var mySequence = [
+  
+	{ e: $titu, p:  "transition.flipXIn",o:{ visibility:"initial"}},
+	{ e: $icon1, p: "transition.slideLeftIn",o:{ visibility:"initial"} },
+    { e: $icon2, p: "transition.expandIn",o:{ visibility:"initial"} },
+	{ e: $icon3, p: "transition.expandIn",o:{ visibility:"initial"}},
+	{ e: $icon4, p: "transition.slideRightIn",o:{ visibility:"initial"}},
+	{ e: $timer, p: "transition.bounceUpIn",o:{ visibility:"initial"}},
+
+	  { e: $tCongreso, p: "transition.flipYIn",o:{ visibility:"initial",delay:2000} },
+    { e: $lFecha, p: "transition.bounceLeftIn",o:{ visibility:"initial"} }
+	
+	
+  ];
+
+
+$.Velocity.RunSequence(mySequence);
+
+
+    var timerId;
+
+
+    countdown.setLabels(
+    ' milisegundo| s| m :| hr| día| semana| mes| año| decada| siglo| milenio',
+    ' milisegundos| s| m :| hrs| días| semanas| meses| años| decadas| siglos| milenios',
+    ' ',
+    ' : ',
+    '',
+    function(n){ return n.toString(); });
+    timerId =
+      countdown(
+        //   actualizarReloj(),
+          new Date("September 18, 2017 12:57:30"),
+        function(ts) {
+        //    console.log(ts.toString());
+		   var dia = ts.days.toString();	
+		   var hora = ts.hours.toString();
+		   var minuto = ts.minutes.toString()
+		   var segundo = ts.seconds.toString();
+		//    console.log(ts)	
+          if(ts.toString() == ""){
+
+			// console.log(ts)
+
+            /*document.next.submit();*/
+            window.clearInterval(timerId);
+          }
+        //   document.getElementById('pagerTimer').innerHTML = ts.toHTML("span");
+		document.getElementById('hora').innerHTML = hora;
+		document.getElementById('minuto').innerHTML = minuto;
+		document.getElementById('segundo').innerHTML = segundo;
+		document.getElementById('dia').innerHTML = dia;
+		
+        //   document.getElementById('pagerTimer2').innerHTML = ts.toHTML("strong");
+        },
+        countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+    // later on this timer may be stopped
+    //window.clearInterval(timerId); 
+
+	var interval = null
+	
+	interval = setInterval(function(){$(
+		".button--nav-next").trigger("click");
+		// console.log("va");
+	}, 6000);
+
+	$(".button--close").click(function(){
+	interval = setInterval(function(){$(
+			".button--nav-next").trigger("click");
+			// console.log("va");
+		}, 6000);
+	})
+
+	$(".button--zoom").click(function(){
+		clearInterval(interval);
+	 })
+	</script>
 </html>

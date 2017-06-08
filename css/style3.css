@@ -23,3 +23,36 @@
     color: #eb462a;
     margin-bottom: 15px;
 }
+.img-build{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+}
+
+/*//imagen slider1*/
+.img-logo-idt{
+    width: 100px;
+}
+.contenedor-icons{
+    width: 60%;
+}
+.text-icons{
+    font-size: 40px;
+    color: white;
+    margin: 25px;
+    font-family: 'Comfortaa', cursive;
+}
+.text-b-icon{
+    color: white;
+}
+@media (max-width: 767px) {
+    .contenedor-icons{
+        width: 100%;
+    }
+    .text-icons{
+        font-size: 32px;
+    }
+    .img-logo-idt{
+       width: 60px;
+    }
+}
