@@ -2,347 +2,145 @@
 <html lang="es" ng-app="ccbolApp" ng-controller="mainCtrl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CCBOL - 2017</title>
-	<!--libs -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="css/colors/red.css">
-    <link rel="stylesheet" href="css/aos.css">
-	<link href="https://fonts.googleapis.com/css?family=Comfortaa:300" rel="stylesheet">
-	<!--libs -->
-	<!--slider-->
-	<link rel="stylesheet" type="text/css" href="fonts/feather/style.css">
-	<link rel="stylesheet" href="css/demo.css">
-	<link rel="stylesheet" href="css/component.css">
-	<link rel="stylesheet" href="css/particles.css">
-	<link rel="stylesheet" href="css/style3.css">
-	<script src="js/modernizr.custom.js"></script>
-	<!--controller-->
+    <meta name="Description" content="Congreso Nacional de Ciencias de la Computación, CCBOL - SUCRE 2017">
+    <meta name="Keywords" content="CCBOL, SUCRE, 2017, hackathon sucre, ccbol 2017">
+    <meta name="robots" content="index,follow" />
+    <!-- OpenGraph metadata-->
+    <meta property="og:locale" content="es_LA" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CCBOL - SUCRE 2017" />
+    <meta property="og:description" content="Congreso Nacional de Ciencias de la Computación, CCBOL - SUCRE 2017" />
+    <meta property="og:url" content="http://ccbol2017.usfx.bo" />
+    <meta property="og:site_name" content="ccbol2017.usfx.bo" />
+    <meta property="og:image" content="assets/img/logo.png" />
+    <meta property='fb:admins' content='FB-AppID'/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="Congreso Nacional de Ciencias de la Computación, CCBOL - SUCRE 2017"/>
+    <meta name="twitter:title" content="CCBOL - SUCRE 2017"/>
+    <meta name="twitter:site" content="@ccbol2017.usfx.bo"/>
+    <meta name="twitter:creator" content="@CCBOL-SUCRE 2017"/>
+    <meta name="theme-color" content="#F0341C">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon//apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicon/ms-icon-144x144.png">
+    <title>CCBOL - SUCRE 2017</title>
+    <!--css style-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/particles.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="assets/css/aos.css">
+    
+    <!--fonts-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
+    <!--angular-->
+    <script src="assets/js/angular/angular.min.js"></script>
+    <script src="assets/js/angular/angular-route.min.js"></script>
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>-->
 
-	<!--slider-->
-	<!--fuente-->
+    <script src="assets/js/angular/app.js"></script>
+    <!--controller-->
+    <script src="assets/js/angular/controller/home-controller.js"></script>
+
 
 </head>
 <body>
-		<div class="bg-image">
-			<div class="count-particles">
-			<!-- particles.js container -->
-			<div id="particles-js"></div>
-			</div>
-		</div>
-<!--nav-->
-<nav class="navbar navbar-nemo ">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nemo-navigation" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar icon-bar-top"></span>
-				<span class="icon-bar icon-bar-middle"></span>
-				<span class="icon-bar icon-bar-bottom"></span>
-			</button>
+   
+<nav>
+    <section class="nav-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 navigation-col__logo">
+                    <div class="logo__wrapper-table">
+                        <div class="logo__wrapper-cell">
+                            <a href="#">
+                                <img class="logo__image" src="assets/img/logosmall-min.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10 navigation-col__links hidden-xs hidden-sm">
+                    <ul>
+                        <li><a href="#/ccbol" ng-click="closeMenu()">CCBOL 2017</a></li>
+                        <li><a href="#/programa" ng-click="closeMenu()">PROGRAMA</a></li>
+                        <li><a href="#/pre-inscripcion" ng-click="closeMenu()">PRE-INSCRIPCIÓN</a></li>
+                        <li><a href="#/ubicacion" ng-click="closeMenu()">UBICACIÓN</a></li>
+                        <li><a href="#/noticias" ng-click="closeMenu()">NOTICIAS</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-offset-10 col-xs-2 visible-xs visible-sm">
+                    <span id="icon-menu"></span>
+                </div>
+            </div>
+        </div>
 
-			<!-- YOUR LOGO -->
-			<a class="navbar-brand" href="#">
-				<img src="images/logosmall.svg" class="img-responsive">
-			</a>
-		</div>
-
-		<div class="collapse navbar-collapse" id="nemo-navigation">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">CCBOL 2017</a></li>
-				<li><a href="#programa">Programa<br></a></li>
-				<li><a href="#pre-inscripcion">Pre-inscripción</a></li>
-				<li><a href="#ubicacion">Ubicación<br></a></li>
-				<li><a href="#noticias">Noticias<br></a></li>
-			</ul>
-		</div>
-	</div>
+    </section>
+    <section id="menu-xs-sm" class=" visible-xs visible-sm" data-active='false'>
+        <div class="menu">
+            <ul class="menu-items">
+                <li class="menu-item"><a href="#/ccbol" ng-click="closeMenu()">CCBOL 2017</a></li>
+                <li class="menu-item"><a href="#/programa" ng-click="closeMenu()">PROGRAMA</a></li>
+                <li class="menu-item"><a href="#/pre-inscripcion" ng-click="closeMenu()">PRE-INSCRIPCIÓN</a></li>
+                <li class="menu-item"><a href="#/ubicacion" ng-click="closeMenu()">UBICACIÓN</a></li>
+                <li class="menu-item"><a href="#/noticias" ng-click="closeMenu()">NOTICIAS</a></li>
+            </ul>
+        </div>
+    </section>
 </nav>
-<!--fin de nav-->
 
 
-			<!-- Grid -->
-		<section class="slider">
-			<div class="slide slide--current" data-content="content-1">
-				<div class="slide__mover" id="slide-n1">
-					<div class="zoomer flex-center">
-						<div class="container-fluid contenedor-icons">
-							<div class="row">
-								<h3 class="text-center text-icons">INTERNET DE TODO</h3>
-								<div class="col-md-3 col-xs-3">
-									<img class="img-logo-idt icon-1" src="images/people.svg" alt="">
-									<br>
-									<br>
-									<span class="text-center text-b-icon icon-1">People</span>
-								</div>
-								<div class="col-md-3 col-xs-3">
-									<img class="img-logo-idt icon-2" src="images/cogs-white.svg" alt="">
-									<br>
-									<br>
-									<span class="text-center text-b-icon icon-2">Process</span>
-								</div>
-								<div class="col-md-3 col-xs-3">
-									<img class="img-logo-idt icon-3" src="images/database-white.svg" alt="">
-									<br>
-									<br>
-									<span class="text-center text-b-icon icon-3">Data</span>
-								</div>
-								<div class="col-md-3 col-xs-3">
-									<img class="img-logo-idt icon-4" src="images/everything.svg" alt="">
-									<br>
-									<br>
-									<span class="text-center text-b-icon icon-4">Things</span>
-								</div>
-							</div>
-						</div>
+<section id="main-container">
+<!--particulas-->
+    <div class="bg-image">
+        <div class="count-particles">
+            <div id="particles-js">
 
-					</div>
-				</div>
-				<h2 class="slide__title">Sucre Te Espera!</h2>
-			</div>
-			<div class="slide"  data-content="content-2">
-				<div class="slide__mover" id="slide-n2">
-					<div class="zoomer flex-center">
-						<div class="preview">
-							<img src="images/logo.svg" data-aos="zoom-out-down" class="img-ccbol" alt="iPhone app preview" />
-							<p class="titulo-congreso heading-pre-suf">CONGRESO NACIONAL DE CIENCIAS DE LA COMPUTACIÓN</p>
-							<p class="lugar-fecha">18 al 22 de Septiembre, Sucre, Bolivia</p>
-							<div class="zoomer__area zoomer__area--size-2"></div>
-						</div>
-						
-					</div>
-				</div>
-				<h2 class="slide__title">Internet del Todo</h2>
-			</div>
-			<div class="slide" data-content="content-3">
-				<div class="slide__mover">
-					<div class="zoomer flex-center">
-						<!--<img class="zoomer__image" src="images/macbook.png" alt="MacBook" />-->
-						<div class="container">
-							<div class="row">
-								<div class="col-md-6">
-									<img src="images/usfx.png" data-aos="zoom-out-down" class="img-usfx" class="img-responsive" alt="">
-								</div>
-								<div class="col-md-6" 	>
-									<img src="images/sistemas.jpg" data-aos="zoom-out-down" class="img-sistemas img-sistemas-slider" class="img-responsive" alt="">
-								</div>
-							</div>
-						</div>
-						
-						<div class="preview">
-							<!--<img src="images/macbook-content-preview.jpg" alt="MacBook app preview" />-->
-							
-							<div class="zoomer__area zoomer__area--size-3"></div>
-						</div>
-					</div>
-				</div>
-				<h2 class="slide__title">Organiza</h2>
-			</div>
-			<button class="button button--nav-prev"><i class="icon icon--arrow-left"></i><span class="text-hidden">Previous product</span></button>
-			<button class="button button--nav-next"><i class="icon icon--arrow-right"></i><span class="text-hidden">Next product</span></button>
-			<button class="button button--zoom"></button>	
-		</section>
-		<!-- /slider-->
-		<section class="content">
-			<div class="content__item" id="content-1">
-				<img class="content__item-img rounded-right" src="images/logo.svg" alt="Apple Watch Content" />
-				<div class="content__item-inner">
-					<h2>CCBol2017</h2>
-					<h3>Incredible performance for powerful apps</h3>
-					<p>Built on 64-bit desktop-class architecture, the new A8 chip delivers more power, even while driving a larger display. The M8 motion coprocessor efficiently gathers data from advanced sensors and a new barometer. And with increased battery life, iPhone 6 lets you do more, for longer than ever.</p>
-					<p><a href="https://www.apple.com/iphone-6/technology/">Learn more about this technology &xrarr;</a></p>
-				</div>
-			</div>
-			<div class="content__item" id="content-2">
-				<img class="content__item-img rounded-right" src="images/ipad-content.jpg" alt="iPad Mini Content" />
-				<div class="content__item-inner">
-					<h2>Internet of Everythings</h2>
-					<h3>Desktop-class architecture without a desktop</h3>
-					<p>Don’t let its size fool you. iPad mini 3 is powered by an A7 chip with 64-bit desktop-class architecture. A7 delivers amazing processing power without sacriﬁcing battery life. So you get incredible performance in a device you can take with you wherever you go.</p>
-					<p><a href="https://www.apple.com/ipad-mini-3/performance/">Learn more about Performance &xrarr;</a></p>
-				</div>
-			</div>
-			<div class="content__item" id="content-3">
-				<img class="content__item-img rounded-right" src="images/macbook-content.jpg" alt="MacBook Content" />
-				<div class="content__item-inner">
-					<h2>Organiza</h2>
-					<h3>It's the future of the notebook</h3>
-					<p>With the new MacBook, we set out to do the impossible: engineer a full-size experience into the lightest and most compact Mac notebook ever. That meant reimagining every element to make it not only lighter and thinner but also better. The result is more than just a new notebook. It's the future of the notebook.</p>
-					<p><a href="https://www.apple.com/macbook/design/">Learn more about the design &xrarr;</a></p>
-				</div>
-			</div>
-			<button class="button button--close"><i class="icon icon--circle-cross"></i><span class="text-hidden">Close content</span></button>
-		</section>
+            </div>
+        </div>
+    </div> 
+
+        <section   ng-cloak ng-view>
+            
+        </section>
+
+</section>
 
 
-		<div class="row timer">
-			<h3 class="text-center text-t">Faltan</h3>
-			<div class="col-md-offset-3 col-md-6 ">
-				<section class="row t-timer">
-					<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
-						<div class="t-dia">
-							<span id="dia"></span><br>
-							<span class="tag-dia">DIAS</span>	
-						</div>
-							
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
-						<div class="t-hora">
-							<span id="hora"></span><br>
-							<span class="tag-hora">HORAS</span>
-						</div>
-						
-					</div> 
-					<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
-						<div class="t-minuto">
-							<span id="minuto"></span><br>
-							<span class="tag-minuto">MINUTOS</span>
-						</div>
-						
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-3 col-timer">
-						<div class="t-segundo">
-							<span id="segundo"></span><br>
-							<span class="tag-segundo">SEGUNDOS</span>
-						</div>
-					</div>
-				</section>
-				
-			</div>
-		</div>
 
-		<section ng-view></section>
+    
 
-
-		<footer class="row">
-			<div class="col-md-offset-2 col-md-10">
-				<p>CCBOL - Sucre 2017</p>
-			</div>
-		</footer>
-</body>
-<!--libs -->
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/aos.js"></script>
-<!--libs -->
-
-<!--slider-->
-<!--particles-->
-<script src="js/particles.min.js"></script>
-<script src="js/app.js"></script>
-<!--particles-->
+<script src="assets/js/particles.min.js"></script>
+<script src="assets/js/app-particle.js"></script>
+<script src="assets/js/countdown.min.js"></script>
+<script src="assets/js/jquery-3.2.1.slim.min.js"></script>   
+<script src="assets/js/bootstrap.min.js"></script> 
+<script src="assets/js/hammer.min.js"></script>  
+<script src="assets/js/aos.js"></script>   
+<script src="assets/js/app.js"></script>
 <script>
 AOS.init({
 });
 //AOS.refresh();
 </script>
-<script src="js/velocity.min.js"></script>
-<script src="js/velocity.ui.js"></script>
-<script src="js/countdown.min.js"></script>
 
+</body>
 
-
-<!--slider-->
-<script src="js/classie.js"></script>
-<script src="js/dynamics.min.js"></script>
-<script src="js/main.js"></script>
-<!--controller angular-->
-
-	<!--angular-->
-	<script src="js/angular/angular.js"></script>
-	<script src="js/angular/angular-route.js"></script>
-	<script src="js/angular/app.js"></script>
-	<script src="js/angular/controller/home-controller.js"></script>
-	<script>
-
-	var	$tCongreso = $(".titulo-congreso");
-	var	$lFecha = $(".lugar-fecha");
-	var $titu = $(".text-icons");
-	var $icon1 = $(".icon-1");
-	var $icon2 = $(".icon-2");
-	var $icon3 = $(".icon-3");
-	var $icon4 = $(".icon-4");
-	// var	$ima = $(".rayas");
-	// var	$text = $(".text_slide_2");
-	var $timer = $(".timer");
-
-var mySequence = [
-  
-	{ e: $titu, p:  "transition.flipXIn",o:{ visibility:"initial"}},
-	{ e: $icon1, p: "transition.slideLeftIn",o:{ visibility:"initial"} },
-    { e: $icon2, p: "transition.expandIn",o:{ visibility:"initial"} },
-	{ e: $icon3, p: "transition.expandIn",o:{ visibility:"initial"}},
-	{ e: $icon4, p: "transition.slideRightIn",o:{ visibility:"initial"}},
-	{ e: $timer, p: "transition.bounceUpIn",o:{ visibility:"initial"}},
-
-	  { e: $tCongreso, p: "transition.flipYIn",o:{ visibility:"initial",delay:2000} },
-    { e: $lFecha, p: "transition.bounceLeftIn",o:{ visibility:"initial"} }
-	
-	
-  ];
-
-
-$.Velocity.RunSequence(mySequence);
-
-
-    var timerId;
-
-
-    countdown.setLabels(
-    ' milisegundo| s| m :| hr| día| semana| mes| año| decada| siglo| milenio',
-    ' milisegundos| s| m :| hrs| días| semanas| meses| años| decadas| siglos| milenios',
-    ' ',
-    ' : ',
-    '',
-    function(n){ return n.toString(); });
-    timerId =
-      countdown(
-        //   actualizarReloj(),
-          new Date("September 18, 2017 12:57:30"),
-        function(ts) {
-        //    console.log(ts.toString());
-		   var dia = ts.days.toString();	
-		   var hora = ts.hours.toString();
-		   var minuto = ts.minutes.toString()
-		   var segundo = ts.seconds.toString();
-		//    console.log(ts)	
-          if(ts.toString() == ""){
-
-			// console.log(ts)
-
-            /*document.next.submit();*/
-            window.clearInterval(timerId);
-          }
-        //   document.getElementById('pagerTimer').innerHTML = ts.toHTML("span");
-		document.getElementById('hora').innerHTML = hora;
-		document.getElementById('minuto').innerHTML = minuto;
-		document.getElementById('segundo').innerHTML = segundo;
-		document.getElementById('dia').innerHTML = dia;
-		
-        //   document.getElementById('pagerTimer2').innerHTML = ts.toHTML("strong");
-        },
-        countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
-    // later on this timer may be stopped
-    //window.clearInterval(timerId); 
-
-	var interval = null
-	
-	interval = setInterval(function(){$(
-		".button--nav-next").trigger("click");
-		// console.log("va");
-	}, 6000);
-
-	$(".button--close").click(function(){
-	interval = setInterval(function(){$(
-			".button--nav-next").trigger("click");
-			// console.log("va");
-		}, 6000);
-	})
-
-	$(".button--zoom").click(function(){
-		clearInterval(interval);
-	 })
-	</script>
 </html>
