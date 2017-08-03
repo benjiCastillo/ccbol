@@ -29,9 +29,36 @@
           ng-model="userSel.email" required>
     </div>
 
+    <div class="form-group row">
+      <div class="col-sm-8">
+            <label>Ciudad </label>
+            <input type="text" name="city" id="city" ng-model="city" ng-keyup="complete(city)" class="form-control" />
+            <ul class="list-group margin-top-0" ng-model="hidethis" ng-hide="hidethis">
+                <li class="list-group-item select2" ng-repeat="citydata in filterCity" ng-click="fillTextboxCity(citydata)">{{citydata}}</li>
+            </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="radio" id="est" ng-model="type" value="vest">
+      <label for="est"> Estudiante </label> 
+      <input type="radio" id="prof" ng-model="type" value="vprof">
+      <label for="prof"> Profecional </label>
+    </div>
+
+    <div ng-show="type == 'vest' ">
+      Estudiante
+    </div>
+
+    <div ng-show="type == 'vprof' ">
+      Profecional
+    </div>
 
   </div>
 
-  <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
+  </div>
 
 </form>
