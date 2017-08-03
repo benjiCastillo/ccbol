@@ -28,7 +28,7 @@ app.controller('homeCtrl', ['$scope',function($scope){
     timerId =
       countdown(
         //   actualizarReloj(),
-          new Date("September 11, 2017 12:57:30"),
+          new Date("September 11, 2017 09:00:00"),
         function(ts) {
         //    console.log(ts.toString());
 		   var dia = ts.days.toString();	
@@ -53,6 +53,6 @@ app.controller('homeCtrl', ['$scope',function($scope){
         },
         countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
     // later on this timer may be stopped
-    window.clearInterval(timerId); 
+    //window.clearInterval(timerId); 
     
 }]) 

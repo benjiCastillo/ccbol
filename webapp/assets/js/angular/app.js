@@ -70,3 +70,16 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 app.config(['$locationProvider', function($locationProvider) {
   $locationProvider.hashPrefix('');
 }]);
+
+
+
+app.run(function($rootScope,$location) {
+    var routespermission = ['/ccbol'];
+    $rootScope.$on('$routeChangeStart',function() {
+        if( !(routespermission.indexOf($location.path()) != -1) ) {
+            if( typeof timerId != 'undefined' )
+                window.clearInterval(timerId);
+            //console.log('Otros enlaces');
+        } 
+    });
+});
