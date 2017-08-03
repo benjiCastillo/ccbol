@@ -75,10 +75,9 @@ class  UserModel
 	public function insertStudent($data){
 		$this->mysqli->multi_query("CALL insertStudent('".$data['_name']."',
 													'".$data['_last_name']."',
-													'".$data['_birthdate']."',
+													'".$data['_ci']."',
 													'".$data['_email']."',
-													'".$data['_city']."',
-													'".$data['_cellphone']."',
+													'".$data['_city']."',	
 													'".$data['_college']."',
 													'".$data['_career']."')");
 			$res = $this->mysqli->store_result();
@@ -91,10 +90,9 @@ class  UserModel
 	public function insertProfessional($data){
 		$this->mysqli->multi_query("CALL insertProfessional('".$data['_name']."',
 													'".$data['_last_name']."',
-													'".$data['_birthdate']."',
+													'".$data['_ci']."',
 													'".$data['_email']."',
 													'".$data['_city']."',
-													'".$data['_cellphone']."',
 													'".$data['_professional_degree']."')");
 			$res = $this->mysqli->store_result();
 			$res = $res->fetch_array();
