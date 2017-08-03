@@ -295,10 +295,12 @@ nav{
 .link-social-facebook:hover{
     text-decoration: none;
     color:#3b5998;
+    cursor: pointer;
 }
 .link-social-twitter:hover{
     text-decoration: none;
     color:#4ab3f4;
+    cursor: pointer;
 }
 
 .icon-twitter{

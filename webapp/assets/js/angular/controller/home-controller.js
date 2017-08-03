@@ -13,7 +13,7 @@ app.controller('homeCtrl', ['$scope',function($scope){
     },1200);
     setTimeout(function(){
         $('.timer-container').addClass('animated visible bounceInUp');
-    },1800);
+    },1500);
 
 
 
