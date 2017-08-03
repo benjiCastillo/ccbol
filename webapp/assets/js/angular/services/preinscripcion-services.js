@@ -1,6 +1,6 @@
-var app = angular.module('jscrumApp.preincripcionServices',[])
+var app = angular.module('ccbolApp.preincripcionServices',[])
 
-app.factory('userServices', ['$http','$q','$rootScope', function($http,$q,$rootScope){
+app.factory('preincripcionServices', ['$http','$q','$rootScope', function($http,$q,$rootScope){
 
 var self ={
 

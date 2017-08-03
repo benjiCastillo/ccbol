@@ -1,0 +1,37 @@
+<form name="frmUser"
+      ng-submit="guardar( userSel, frmUser )"
+      novalidate="novalidate">
+
+  <div class="modal-body">
+
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" class="form-control" placeholder="Nombre"
+          ng-model="userSel.name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Apellido</label>
+      <input type="text" class="form-control" placeholder="Apellido"
+          ng-model="userSel.last_name" required>
+    </div>
+
+    <div class="form-group">
+      <label>CI</label>
+      <input type="text" class="form-control" placeholder="CI"
+          ng-model="userSel.ci" required>
+    </div>
+
+    <div class="form-group">
+      <label>Correo</label>
+      <input type="email" class="form-control" placeholder="ejemplo@algo.algo"
+          ng-model="userSel.email" required>
+    </div>
+
+
+  </div>
+
+  <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
+
+</form>
