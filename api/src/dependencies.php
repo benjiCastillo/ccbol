@@ -32,7 +32,7 @@ $container['db_mysqli'] = function ($c) {
 $container['model']	= function($c){
 
 	return (object)[
-		'Exhibition'	=>	new App\Model\ExhibitionModel($c->db_mysqli),
+		'Event'	=>	new App\Model\EventModel($c->db_mysqli),
 		'Expositor'	=>	new App\Model\ExpositorModel($c->db_mysqli),
 		'Location'	=>	new App\Model\LocationModel($c->db_mysqli),
 		'User'	=>	new App\Model\UserModel($c->db_mysqli)

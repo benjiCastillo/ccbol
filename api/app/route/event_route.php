@@ -9,20 +9,30 @@ use App\Lib\Response;
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 });
 
-$app->group('/exhibition',function(){
+$app->group('/event',function(){
 
-	$this->post('/login',function($req, $res, $args){
+	$this->get('/listEvent/',function($req, $res, $args){
 		return $res->withHeader('Content-type', 'aplication/json')
 				   ->write(
-				   		json_encode($this->model->Exhibition->login($req->getParsedBody()))
+				   		json_encode($this->model->Event->listEvent())
+				   		
 				   	);
 	});
+
 	$this->post('/',function($req, $res, $args){
 
 		return $res->withHeader('Content-type', 'aplication/json')
 			       -> write(
-						json_encode($this->model->Exhibition->insert($req->getParsedBody()))
+						json_encode($this->model->Event->insert($req->getParsedBody()))
 
+				   	);
+	});
+
+	$this->post('/listEvent/',function($req, $res, $args){
+
+		return $res->withHeader('Content-type', 'aplication/json')
+			       -> write(
+						json_encode($this->model->Event->listEvent($req->getParsedBody()))
 				   	);
 	});
 
@@ -30,7 +40,7 @@ $app->group('/exhibition',function(){
 
 		return $res->withHeader('Content-type', 'aplication/json')
 				   ->write(
-				   		json_encode($this->model->Exhibition->update($req->getParsedBody(), $args['id'] ))
+				   		json_encode($this->model->Event->update($req->getParsedBody(), $args['id'] ))
 				   		
 				   	);
 	});
@@ -38,7 +48,7 @@ $app->group('/exhibition',function(){
 	$this->delete('/{id}',function($req, $res, $args){
 		return $res->withHeader('Content-type', 'aplication/json')
 				   ->write(
-				   		json_encode($this->model->Exhibition->delete($args['id']))
+				   		json_encode($this->model->Event->delete($args['id']))
 				   		
 				   	);
 

@@ -8,10 +8,10 @@ use App\Lib\Response,
 /**
 * Modelo usuario
 */
-class  UserModel
+class  EventModel
 {
 	private $db;
-	private $table = 'user';
+	private $table = 'event';
 	private $response;
 
 
@@ -61,46 +61,17 @@ class  UserModel
 		return $data = $this->db->from($this->table, $id)
 								->fetch();  						 
 	}
-	//registrar
-	public function insert($data){
-		// $data['password'] = md5($data['password']);
+	public function listEvent(){
 
-		$this->mysqli->insertInto($this->table, $data)
-				 ->execute();
-
-		return $this->response->setResponse(true);
-		}
-
-	/* INSERTAR Usuario */
-	public function insertStudent($data){
-		$this->mysqli->multi_query("CALL insertStudent('".$data['_name']."',
-													'".$data['_last_name']."',
-													'".$data['_ci']."',
-													'".$data['_email']."',
-													'".$data['_city']."',	
-													'".$data['_college']."',
-													'".$data['_career']."')");
+		$this->mysqli->multi_query(" CALL listEvent()");
 			$res = $this->mysqli->store_result();
 			$res = $res->fetch_array();
 			mysqli_close($this->mysqli);
 			$res = array("message"=>$res[0], "error"=>$res[1], "response"=>true);
-			return $res;	
+			return $res;		
 	}
 
-	public function insertProfessional($data){
-		$this->mysqli->multi_query("CALL insertProfessional('".$data['_name']."',
-													'".$data['_last_name']."',
-													'".$data['_ci']."',
-													'".$data['_email']."',
-													'".$data['_city']."',
-													'".$data['_professional_degree']."')");
-			$res = $this->mysqli->store_result();
-			$res = $res->fetch_array();
-			mysqli_close($this->mysqli);
-			$res = array("message"=>$res[0], "error"=>$res[1], "response"=>true);
-			return $res;	
-	}
-
+	
 	//actualizar
 	public function update($data, $id){
 
