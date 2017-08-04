@@ -1,5 +1,5 @@
 <form name="frmUser"
-      ng-submit="guardar( userSel, frmUser )"
+      ng-submit="guardar( userSel,type,frmUser )"
       novalidate="novalidate">
 
   <div class="modal-body">
@@ -8,31 +8,31 @@
     <div class="form-group">
       <label>Nombre</label>
       <input type="text" class="form-control" placeholder="Nombre"
-          ng-model="userSel.name" required>
+          ng-model="userSel._name" required>
     </div>
 
     <div class="form-group">
       <label>Apellido</label>
       <input type="text" class="form-control" placeholder="Apellido"
-          ng-model="userSel.last_name" required>
+          ng-model="userSel._last_name" required>
     </div>
 
     <div class="form-group">
       <label>CI</label>
       <input type="text" class="form-control" placeholder="CI"
-          ng-model="userSel.ci" required>
+          ng-model="userSel._ci" required>
     </div>
 
     <div class="form-group">
       <label>Correo</label>
       <input type="email" class="form-control" placeholder="ejemplo@algo.algo"
-          ng-model="userSel.email" required>
+          ng-model="userSel._email" required>
     </div>
 
     <div class="form-group row">
       <div class="col-sm-8">
             <label>Ciudad </label>
-            <input type="text" name="city" id="city" ng-model="userSel.city" ng-keyup="completeCity(userSel.city)" class="form-control" placeholder="Ciudad"/>
+            <input type="text" name="city" id="city" ng-model="userSel._city" ng-keyup="completeCity(userSel._city)" class="form-control" placeholder="Ciudad" autocomplete="off" />
             <ul class="list-group margin-top-0" ng-model="hidethis" ng-hide="hidethis">
                 <li class="list-group-item select2" ng-repeat="citydata in filterCity" ng-click="fillTextboxCity(citydata)">{{citydata}}</li>
             </ul>
@@ -50,7 +50,7 @@
       <div class="form-group row">
         <div class="col-sm-8">
               <label>Universidad </label>
-              <input type="text" name="college" id="college" ng-model="userSel.college" ng-keyup="completeCollege(userSel.college)" class="form-control" placeholder="Universidad"/>
+              <input type="text" name="college" id="college" ng-model="userSel._college" ng-keyup="completeCollege(userSel._college)" class="form-control" placeholder="Universidad"/>
               <ul class="list-group margin-top-0" ng-model="hidethisCollege" ng-hide="hidethisCollege">
                   <li class="list-group-item select2" ng-repeat="collegeData in filterCollege" ng-click="fillTextboxCollege(collegeData)">{{collegeData}}</li>
               </ul>
@@ -59,7 +59,7 @@
       <div class="form-group">
         <label>Carrera </label>
         <input type="text" class="form-control" placeholder="Carrera"
-            ng-model="userSel.career" required>
+            ng-model="userSel._career" required>
       </div>
     </div>
 
@@ -67,7 +67,7 @@
       <div class="form-group">
         <label>Profesión </label>
         <input type="text" class="form-control" placeholder="Profesión"
-            ng-model="userSel.professional_degree" required>
+            ng-model="userSel._professional_degree" required>
       </div>
     </div>
 
