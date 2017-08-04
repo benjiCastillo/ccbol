@@ -3,7 +3,7 @@ var app = angular.module('ccbolApp.preincripcionServices',[])
 app.factory('preincripcionServices', ['$http','$q','$rootScope', function($http,$q,$rootScope){
 
 var self ={
-
+				response : '',
 				insertar : function(datos){
 					var d = $q.defer();
 					console.log(datos);
@@ -26,11 +26,11 @@ var self ={
     							// self.cargando		= false;
 								self.response 	= response.data;
 								// console.log("Service"+response);
-								return d.resolve()	
+								return d.resolve();
                             }, function errorCallback(response) {
 								
 								self.response 	= response.data
-								return d.resolve();
+								return d.reject();
                         });
                        return d.promise;	 
 	

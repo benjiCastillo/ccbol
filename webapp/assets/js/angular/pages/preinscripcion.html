@@ -32,7 +32,7 @@
     <div class="form-group row">
       <div class="col-sm-8">
             <label>Ciudad </label>
-            <input type="text" name="city" id="city" ng-model="city" ng-keyup="complete(city)" class="form-control" />
+            <input type="text" name="city" id="city" ng-model="userSel.city" ng-keyup="completeCity(userSel.city)" class="form-control" placeholder="Ciudad"/>
             <ul class="list-group margin-top-0" ng-model="hidethis" ng-hide="hidethis">
                 <li class="list-group-item select2" ng-repeat="citydata in filterCity" ng-click="fillTextboxCity(citydata)">{{citydata}}</li>
             </ul>
@@ -43,22 +43,39 @@
       <input type="radio" id="est" ng-model="type" value="vest">
       <label for="est"> Estudiante </label> 
       <input type="radio" id="prof" ng-model="type" value="vprof">
-      <label for="prof"> Profecional </label>
+      <label for="prof"> Profesional </label>
     </div>
 
     <div ng-show="type == 'vest' ">
-      Estudiante
+      <div class="form-group row">
+        <div class="col-sm-8">
+              <label>Universidad </label>
+              <input type="text" name="college" id="college" ng-model="userSel.college" ng-keyup="completeCollege(userSel.college)" class="form-control" placeholder="Universidad"/>
+              <ul class="list-group margin-top-0" ng-model="hidethisCollege" ng-hide="hidethisCollege">
+                  <li class="list-group-item select2" ng-repeat="collegeData in filterCollege" ng-click="fillTextboxCollege(collegeData)">{{collegeData}}</li>
+              </ul>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Carrera </label>
+        <input type="text" class="form-control" placeholder="Carrera"
+            ng-model="userSel.career" required>
+      </div>
     </div>
 
     <div ng-show="type == 'vprof' ">
-      Profecional
+      <div class="form-group">
+        <label>Profesión </label>
+        <input type="text" class="form-control" placeholder="Profesión"
+            ng-model="userSel.professional_degree" required>
+      </div>
     </div>
 
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
+    </div>
   </div>
 
 
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
-  </div>
 
 </form>
