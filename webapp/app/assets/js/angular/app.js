@@ -1,8 +1,6 @@
 var app = angular.module('ccbolApp',
 	['ngRoute',
-	'ccbolApp.homeCtrl',
-    'ccbolApp.preinscripcionCtrl',
-    'ccbolApp.preincripcionServices'
+	'ccbolApp.homeCtrl'
     ]
 	);
 app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
@@ -56,8 +54,7 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 		templateUrl: 'assets/js/angular/pages/building.html'
 	})
 	.when('/pre-inscripcion', {
-		templateUrl: 'assets/js/angular/pages/preinscripcion.html',
-        controller: 'preinscripcionCtrl'
+		templateUrl: 'assets/js/angular/pages/building.html'
 	}) 
 	.when('/ubicacion', {
 		templateUrl: 'assets/js/angular/pages/building.html'

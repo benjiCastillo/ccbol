@@ -1,0 +1,64 @@
+<form name="frmUser"
+      ng-submit="guardar( userSel, frmUser )"
+      novalidate="novalidate">
+
+  <div class="modal-body">
+
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" class="form-control" placeholder="Nombre"
+          ng-model="userSel.name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Apellido</label>
+      <input type="text" class="form-control" placeholder="Apellido"
+          ng-model="userSel.last_name" required>
+    </div>
+
+    <div class="form-group">
+      <label>CI</label>
+      <input type="text" class="form-control" placeholder="CI"
+          ng-model="userSel.ci" required>
+    </div>
+
+    <div class="form-group">
+      <label>Correo</label>
+      <input type="email" class="form-control" placeholder="ejemplo@algo.algo"
+          ng-model="userSel.email" required>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-8">
+            <label>Ciudad </label>
+            <input type="text" name="city" id="city" ng-model="city" ng-keyup="complete(city)" class="form-control" />
+            <ul class="list-group margin-top-0" ng-model="hidethis" ng-hide="hidethis">
+                <li class="list-group-item select2" ng-repeat="citydata in filterCity" ng-click="fillTextboxCity(citydata)">{{citydata}}</li>
+            </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="radio" id="est" ng-model="type" value="vest">
+      <label for="est"> Estudiante </label> 
+      <input type="radio" id="prof" ng-model="type" value="vprof">
+      <label for="prof"> Profecional </label>
+    </div>
+
+    <div ng-show="type == 'vest' ">
+      Estudiante
+    </div>
+
+    <div ng-show="type == 'vprof' ">
+      Profecional
+    </div>
+
+  </div>
+
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
+  </div>
+
+</form>
