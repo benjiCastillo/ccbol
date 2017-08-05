@@ -32,7 +32,7 @@
     <div class="form-group row">
       <div class="col-sm-8">
             <label>Ciudad </label>
-            <input type="text" name="city" id="city" ng-model="userSel._city" ng-keyup="completeCity(userSel._city)" class="form-control" placeholder="Ciudad" autocomplete="off" />
+            <input type="text" name="city" id="city" ng-model="userSel._city" ng-keyup="completeCity(userSel._city)" class="form-control" placeholder="Ciudad" autocomplete="off" required />
             <ul class="list-group margin-top-0" ng-model="hidethis" ng-hide="hidethis">
                 <li class="list-group-item select2" ng-repeat="citydata in filterCity" ng-click="fillTextboxCity(citydata)">{{citydata}}</li>
             </ul>
@@ -59,7 +59,7 @@
       <div class="form-group">
         <label>Carrera </label>
         <input type="text" class="form-control" placeholder="Carrera"
-            ng-model="userSel._career" required>
+            ng-model="userSel._career">
       </div>
     </div>
 
@@ -67,7 +67,7 @@
       <div class="form-group">
         <label>Profesión </label>
         <input type="text" class="form-control" placeholder="Profesión"
-            ng-model="userSel._professional_degree" required>
+            ng-model="userSel._professional_degree">
       </div>
     </div>
 
