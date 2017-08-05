@@ -77,7 +77,11 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 	.when('/pre-inscripcion', {
 		templateUrl: 'assets/js/angular/pages/preinscripcion.html',
         controller: 'preinscripcionCtrl'
-	}) 
+	})
+    .when('/registro-exitoso', {
+        templateUrl: 'assets/js/angular/pages/registroExitoso.html',
+        controller: 'preinscripcionCtrl'
+    })
 	.when('/ubicacion', {
 		templateUrl: 'assets/js/angular/pages/ubicacion.html',
         controller:'ubicacionCtrl'
