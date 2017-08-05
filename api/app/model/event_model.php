@@ -65,10 +65,13 @@ class  EventModel
 
 		$this->mysqli->multi_query(" CALL listEvent()");
 			$res = $this->mysqli->store_result();
-			$res = $res->fetch_array();
+			while($fila = $res->fetch_assoc()){
+				$arreglo[] = $fila;
+			}
+			$res = $arreglo;
 			mysqli_close($this->mysqli);
-			$res = array("message"=>$res[0], "error"=>$res[1], "response"=>true);
-			return $res;		
+			$res = array("message"=>$res, "response"=>true);
+			return $res;	
 	}
 
 	
