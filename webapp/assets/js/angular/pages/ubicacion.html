@@ -20,7 +20,7 @@
         </div>  
     </div>
     <div class="row">
-        <div class="col-md-6" ng-repeat="location in locations | orderBy : 'title'">
+        <div class="col-md-6" ng-repeat="location in locations | orderBy : 'id'">
             <div class="card">
                 <div class="card-image">
                     <!--<img src="assets/img/port-min.jpg" alt="">-->
@@ -30,9 +30,9 @@
                 <div class="card-content">
                     <p>{{ location.desc }}</p>
                 </div>
-                <div class="card-action">
+                <!--<div class="card-action">
                     <a href="#">Ver Mapa</a>
-                </div>
+                </div>-->
             </div>
         </div>  
     </div>

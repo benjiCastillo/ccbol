@@ -72,29 +72,24 @@ app.controller('ubicacionCtrl', ['$scope',function($scope){
 
 
         $scope.locations = [
-              {
+              {   id:'1',  
                   title : 'Facultad de Tecnologia',
                   desc : 'Calle Regimientos Campos y Ricardo Andrade',
                   portada : 'tecnologia-min.jpg',
                   long : -65.257055
               },
-              {
-                  title : 'Terminal de Buses Sucre',
-                  desc : 'Av. Otria Gutierrez',
-                  portada : 'terminal-min.jpg',
-                  long : -65.2471213
+
+              {   id:'2',  
+                  title : 'Teatro Gran Mariscal',
+                  desc : 'Calle Km 7, Arenales y Pilinco',
+                  portada : 'teatro-min.jpg',
+                  long : -65.263148
               },
-              {
+             {    id:'3',  
                   title : 'Casa de la Cultura Universitaria',
                   desc : 'Calle Aniceto Arce entre Ravelo y Arenales',
                   portada : 'port-min.jpg',
                   long : -65.2593696
-              },
-              {
-                  title : 'Teatro Gran Mariscal',
-                  desc : 'Teatro',
-                  portada : 'teatro-min.jpg',
-                  long : -65.263148
               }
           ];
 }]) 
