@@ -69,4 +69,32 @@ app.controller('ubicacionCtrl', ['$scope',function($scope){
                   google.maps.event.trigger(selectedMarker, 'click');
               }
             console.log($scope.markers)
+
+
+        $scope.locations = [
+              {
+                  title : 'Facultad de Tecnologia',
+                  desc : 'Calle Regimientos Campos y Ricardo Andrade',
+                  portada : 'tecnologia-min.jpg',
+                  long : -65.257055
+              },
+              {
+                  title : 'Terminal de Buses Sucre',
+                  desc : 'Av. Otria Gutierrez',
+                  portada : 'terminal-min.jpg',
+                  long : -65.2471213
+              },
+              {
+                  title : 'Casa de la Cultura Universitaria',
+                  desc : 'Calle Aniceto Arce entre Ravelo y Arenales',
+                  portada : 'port-min.jpg',
+                  long : -65.2593696
+              },
+              {
+                  title : 'Teatro Gran Mariscal',
+                  desc : 'Teatro',
+                  portada : 'teatro-min.jpg',
+                  long : -65.263148
+              }
+          ];
 }]) 
