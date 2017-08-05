@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="titulo-ubicacion" data-aos='fade-up'>Ubicación</h2>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+             <div id="map"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-xs-6" ng-repeat="marker in markers | orderBy : 'title'">
+             <button type="submit" id="btn-send" class="btn btn-center btn-transparent-gmail" ng-click="openInfoWindow($event, marker)">      
+                <span>
+                {{marker.title}}
+                </span>
+            </button>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-6" ng-repeat="location in locations | orderBy : 'title'">
+            <div class="card">
+                <div class="card-image">
+                    <!--<img src="assets/img/port-min.jpg" alt="">-->
+                    <img ng-src="assets/img/{{location.portada}}" alt="">
+                    <span class="card-title">{{location.title}}</span>
+                </div>
+                <div class="card-content">
+                    <p>{{ location.desc }}</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">Ver Mapa</a>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div
