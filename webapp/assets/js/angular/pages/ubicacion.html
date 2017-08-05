@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="titulo-ubicacion" data-aos='fade-up'>Ubicación</h2>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+             <div id="map"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" ng-repeat="marker in markers | orderBy : 'title'">
+            <div class="card" ng-click="openInfoWindow($event, marker)">
+                <div class="card-image">
+                    <img src="assets/img/port-min.jpg" alt="">
+                    <span class="card-title">{{marker.title}}</span>
+                </div>
+                <div class="card-content">
+                    <p>Soy una tarjeta muy simple. Soy buena mostrando pequeños trozos de información. Soy conveniente porque requiero pocas etiquetas para usarme efectivamente.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">Ver Mapa</a>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+
+</div

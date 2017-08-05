@@ -1,6 +1,7 @@
 var app = angular.module('ccbolApp',
 	['ngRoute',
 	'ccbolApp.homeCtrl',
+    'ccbolApp.ubicacionCtrl',
     'ccbolApp.preinscripcionCtrl',
     'ccbolApp.preincripcionServices'
     ]
@@ -39,6 +40,24 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
             $('#menu-xs-sm').css("left", "-200px");
             $('#menu-xs-sm').attr("data-active","false");
      }   
+
+     var head = document.getElementsByTagName('head')[0];
+
+        // Save the original method
+        var insertBefore = head.insertBefore;
+
+        // Replace it!
+        head.insertBefore = function (newElement, referenceElement) {
+
+            if (newElement.href && newElement.href.indexOf('//fonts.googleapis.com/css?family=Roboto') > -1) {
+
+                console.info('Prevented Roboto from loading!');
+                return;
+            }
+
+            insertBefore.call(head, newElement, referenceElement);
+        };
+
 }]);
 
  app.config( function ($routeProvider) {
@@ -60,8 +79,9 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
         controller: 'preinscripcionCtrl'
 	}) 
 	.when('/ubicacion', {
-		templateUrl: 'assets/js/angular/pages/building.html'
-	})       
+		templateUrl: 'assets/js/angular/pages/ubicacion.html',
+        controller:'ubicacionCtrl'
+	})        
     .when('/noticias', {
 		templateUrl: 'assets/js/angular/pages/building.html'
 	})               
