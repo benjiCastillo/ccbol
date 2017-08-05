@@ -365,15 +365,6 @@ nav{
   fill: #fff;
   
    
-} 
-
-#btn-send:active{
-    color:#fff !important;  
-    padding: 0;                             
-}
-#btn-send:visited{
-    color:#fff;
-    padding: 0 !important;         
 }
 
 .btn-center{
@@ -417,6 +408,9 @@ nav{
     border-radius: .28571429rem;
     box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
 }
+.padding-top-0 {
+    padding: 0;
+}
 
 .btn span{
     vertical-align: super;
@@ -424,8 +418,11 @@ nav{
 
 
 /*FIN estilo button*/
-
-
+.qrcode {
+    width:250px;
+    height:250px;
+    margin-top:15px;
+}
 
 
 
