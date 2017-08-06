@@ -83,7 +83,7 @@ class  UserModel
 			$res = $this->mysqli->store_result();
 			$res = $res->fetch_array();
 			mysqli_close($this->mysqli);
-			if($res[1]="yes")
+			if($res[1]=="yes")
 				$res = array("message"=>$res[0], "error"=>$res[1], "response"=>true);
 			else
 				$res = array("message"=>$res[0], "ci"=>$res[2], "error"=>$res[1], "response"=>true);
@@ -100,11 +100,11 @@ class  UserModel
 			$res = $this->mysqli->store_result();
 			$res = $res->fetch_array();
 			mysqli_close($this->mysqli);
-			if($res[1]="yes")
+			if($res[1]=="yes")
 				$res = array("message"=>$res[0], "error"=>$res[1], "response"=>true);
 			else
 				$res = array("message"=>$res[0], "ci"=>$res[2], "error"=>$res[1], "response"=>true);
-			return $res;	
+			return $res;		
 	}
 
 	//actualizar
