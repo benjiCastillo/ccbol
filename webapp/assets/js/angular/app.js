@@ -1,11 +1,25 @@
 var app = angular.module('ccbolApp',
 	['ngRoute',
+    'jcs-autoValidate',
 	'ccbolApp.homeCtrl',
     'ccbolApp.ubicacionCtrl',
     'ccbolApp.preinscripcionCtrl',
     'ccbolApp.preincripcionServices'
     ]
-	);
+	).run([
+        'defaultErrorMessageResolver',
+        function (defaultErrorMessageResolver) {
+            // To change the root resource file path
+            defaultErrorMessageResolver.setI18nFileRootPath('assets/js');
+            defaultErrorMessageResolver.setCulture('es-co');
+
+            /*defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
+              errorMessages['coincide'] = 'Su contraseña no coincide';
+              errorMessages['parse'] = 'Debe ingresar la nueva contraseña';
+            });*/
+        }
+    ]);
+
 app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
     /* Hammer js para el swip */
     var menu = $('#main-container')[0];
