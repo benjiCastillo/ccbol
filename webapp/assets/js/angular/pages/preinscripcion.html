@@ -9,14 +9,14 @@
         <div>
 
           <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" class="form-control" placeholder="Nombre"
+            <label>Nombres </label>
+            <input type="text" class="form-control" placeholder="Nombres"
                 ng-model="userSel._name" required>
           </div>
 
           <div class="form-group">
-            <label>Apellido</label>
-            <input type="text" class="form-control" placeholder="Apellido"
+            <label>Apellidos </label>
+            <input type="text" class="form-control" placeholder="Apellidos"
                 ng-model="userSel._last_name" required>
           </div>
 
@@ -50,7 +50,7 @@
           </div>
 
           <div ng-show="type == 'vest' ">
-            <div class="form-group row">
+            <div class="form-group row animated bounceInLeft">
               <div class="col-sm-8">
                     <label>Universidad </label>
                     <input type="text" name="college" id="college" ng-model="userSel._college" ng-keyup="completeCollege(userSel._college)" class="form-control" placeholder="Universidad"/>
@@ -59,15 +59,20 @@
                     </ul>
               </div>
             </div>
-            <div class="form-group">
-              <label>Carrera </label>
-              <input type="text" class="form-control" placeholder="Carrera"
-                  ng-model="userSel._career">
+
+            <div class="form-group row animated bounceInRight">
+              <div class="col-sm-8">
+                    <label>Carrera </label>
+                    <input type="text" name="carrera" id="carrera" ng-model="userSel._career" ng-keyup="completeCareer(userSel._career)" class="form-control" placeholder="Carrera"/>
+                    <ul class="list-group margin-top-0" ng-model="hidethisCareer" ng-hide="hidethisCareer">
+                        <li class="list-group-item select2" ng-repeat="careerData in filterCareer" ng-click="fillTextboxCareer(careerData)">{{careerData}}</li>
+                    </ul>
+              </div>
             </div>
           </div>
 
           <div ng-show="type == 'vprof' ">
-            <div class="form-group">
+            <div class="form-group animated bounceInRight">
               <label>Profesión </label>
               <input type="text" class="form-control" placeholder="Profesión"
                   ng-model="userSel._professional_degree">
