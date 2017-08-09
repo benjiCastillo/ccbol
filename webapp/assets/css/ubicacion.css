@@ -37,6 +37,7 @@
     left: 0;
     max-width: 100%;
     padding: 24px;
+    text-shadow: 2px 2px 1px #2d2d2d;
 }
 .card .card-title {
     font-size: 24px;

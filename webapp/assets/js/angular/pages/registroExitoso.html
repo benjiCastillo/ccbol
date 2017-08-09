@@ -1,11 +1,17 @@
 <div class="container">
 	<div class="row">
-		<h2 class="titulo-ubicacion ">Preinscripcion</h2>		
-		<div class="col-md-offset-4 col-md-4 col-xs-12">	
-			<h3 class="text-center text-succes-pre-inscripcion animated fadeInDown"> <b>FELICIDADES</b>, su pre-inscripcion fue exitosa.</h3>			
-			<h2>Importante</h2>
-			<p>El consto de inscripción es de 300Bs.- que se debera cancelar en la facultad de <a href="#/ubicacion">tecnología</a> USFX el día 12 de septiembre, previa presentación de su códigoQR generado.  </p>
-			<div id="qrcode"  class="img-responsive qrcode"></div>
+		<h2 class="titulo-ubicacion">Preinscripcion</h2>
+		<p ng-show="!successPreIns">Necesita llenar el formulario de Preinscripcion</p>		
+		<div class="col-md-offset-4 col-md-4 col-xs-12 col-success-qr" ng-show="successPreIns">
+			<section class="container-success-qr">
+				<h3 class="text-center text-succes-pre-inscripcion animated fadeInDown"> <b>FELICIDADES !</b>, su pre-inscripcion fue exitosa.</h3>			
+				<h2>Importante</h2>
+				<p>El costo de inscripción es de 300Bs. que se deberá cancelar en la facultad de <a href="#/ubicacion">Tecnología</a> USFX el día 12 de septiembre, previa presentación de su código QR generado.  </p>
+				<div id="qrcode"  class="img-responsive qrcode"></div>
+				<p>*Guarda el código QR.</p>
+				<p>Únete el grupo oficial de Whatsapp <a  target="_blank"  href="https://chat.whatsapp.com/HcPtHvEvRJH806cTqIfHm6">Unirse</a></p>
+			</section>	
+			
 		</div>
 	</div>	
 </div>

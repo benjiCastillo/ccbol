@@ -6,7 +6,7 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
     $scope.careerList = { nombre: ["Ing. de Sistemas","Ing. de Telecomunicaciones","Informática","Ing. de Software"]};
     $scope.loader = false;
     $scope.classTop = '';
-    //$rootScope.qrci = 'a';
+    $rootScope.qrci;
 
     $scope.completeCity = function(string){
         if(string) {
@@ -72,24 +72,36 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
         $scope.classTop = 'padding-top-0';
         if(type=='vest') {
             preincripcionServices.guardarEst( data ).then(function(){
-                // codigo cuando se insertó
-                $scope.qrci = preincripcionServices.response.ci;
-                $scope.userSel = {};
+                console.log(preincripcionServices.response)
+                $scope.dataResponse = preincripcionServices.response;
                 $scope.loader = false;
-                $location.path('/registro-exitoso');
-                $scope.makeCode();
-                frmUser.autoValidateFormOptions.resetForm();
+                $scope.classTop = 'padding: 8px 1.5em 8px;';
+                if($scope.dataResponse.error == 'not'){
+                    $rootScope.qrci = preincripcionServices.response.ci;
+                    $scope.userSel = {};
+                    $scope.loader = false;
+                    $location.path('/registro-exitoso');
+                    // $scope.makeCode();
+                    frmUser.autoValidateFormOptions.resetForm();
+                }
+
             });
         } else {
             if(type=='vprof') {
                 preincripcionServices.guardarProf( data ).then(function(){
-                    // codigo cuando se insertó
-                    $rootScope.qrci = preincripcionServices.response.ci;
-                    $scope.userSel = {};
+                    console.log(preincripcionServices.response)
                     $scope.loader = false;
-                    console.log(preincripcionServices);
-                    $location.path('/registro-exitoso');
-                    frmUser.autoValidateFormOptions.resetForm();
+                    $scope.dataResponse = preincripcionServices.response;
+                    $scope.classTop = 'padding: 8px 1.5em 8px;';
+                    // codigo cuando se insertó
+                    if($scope.dataResponse.error == 'not'){
+                        $rootScope.qrci = preincripcionServices.response.ci;
+                        $scope.userSel = {};
+                        $scope.loader = false;
+                        $location.path('/registro-exitoso');
+                        // $scope.makeCode();
+                        frmUser.autoValidateFormOptions.resetForm();
+                    }
                 });
             }
         }
@@ -101,6 +113,19 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
         if ($scope.qrci)
             qrcode.makeCode($rootScope.qrci);
     };
-    if($location.path() == '/registro-exitoso')
-        $scope.makeCode();
+    $scope.successPreIns = false;
+    if($location.path() == '/registro-exitoso'){
+        // if($scope.qrci)
+        // $scope.makeCode();
+        if(typeof($rootScope.qrci) != 'undefined'){
+            $scope.makeCode();
+             $scope.successPreIns = true;
+            console.log(typeof($rootScope.qrci));
+        }else{
+            console.log('no deberias estar aqui');
+             $scope.successPreIns = false;
+        }
+    //    console.log(typeof($scope.qrci));
+    }
+
 }]) 
