@@ -3,6 +3,7 @@ var app = angular.module('ccbolApp',
     'jcs-autoValidate',
 	'ccbolApp.homeCtrl',
     'ccbolApp.ubicacionCtrl',
+    'ccbolApp.expositoresCtrl',
     'ccbolApp.preinscripcionCtrl',
     'ccbolApp.preincripcionServices'
     ]
@@ -87,6 +88,10 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 	})
 	.when('/programa', {
 		templateUrl: 'assets/js/angular/pages/building.html'
+    })
+    .when('/expositores', {
+        templateUrl: 'assets/js/angular/pages/expositores.html',
+        controller: 'expositoresCtrl'
 	})
 	.when('/pre-inscripcion', {
 		templateUrl: 'assets/js/angular/pages/preinscripcion.html',
