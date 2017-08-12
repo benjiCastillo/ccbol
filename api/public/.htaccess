@@ -8,3 +8,6 @@ RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
+Header set Access-Control-Allow-Origin http://ccbol2017.usfx.bo 
+Header set Access-Control-Allow-Credentials true
+Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"

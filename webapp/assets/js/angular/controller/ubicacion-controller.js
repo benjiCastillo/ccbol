@@ -25,7 +25,20 @@ app.controller('ubicacionCtrl', ['$scope',function($scope){
                   desc : 'Teatro',
                   lat : -19.0438658,
                   long : -65.263148
+              },
+                {
+                  place : 'Complejo Senac',
+                  desc : 'Julio Pinkas',
+                  lat : -19.056539,
+                  long :-65.2618196
+              },
+             {
+                  place : 'Sib Chiquisaca',
+                  desc : 'Destacamento 111',
+                  lat : -19.0462359,
+                  long :-65.263711
               }
+
           ];
 
               var mapOptions = {

@@ -2,14 +2,14 @@
       <h2 class="titulo-preinscripcion" data-aos='fade-up'>Pre-Inscripción</h2>
   <div class="row row-form">
 
-    <div class="col-md-7">
-      <p>Los datos proporcionados en el formulario, serán utilizados para la elaboración de los certificados correspondientes.</p>
-      <p>El costo de la inscripción es de 300 bs.</p>
-      <p>El pago correspondiente se realizara en ambientes de  la Facultad de Tecnología, el día 11 de Septiembre.</p>
+    <div class="col-md-7 info-text">
+      <p class="p-info-text animated fadeInLeft">Los datos proporcionados en el formulario, serán utilizados para la elaboración de los certificados correspondientes.</p>
+      <p class="animated fadeInLeft">El costo de la inscripción es de 300 bs.</p>
+      <p class="animated fadeInLeft">El pago correspondiente se realizara en ambientes de  la Facultad de Tecnología, el día 11 de Septiembre.</p>
       
     </div>
     <div class="col-md-5 col-form">
-      <div class="container-preinscripcion">
+      <div class="container-preinscripcion animated fadeInRight">
       <form name="frmUser"
       ng-submit="guardar( userSel,type,frmUser )"
       novalidate="novalidate" style="padding:15px;">
@@ -58,7 +58,7 @@
           </div>
 
           <div ng-show="type == 'vest' ">
-            <div class="form-group row animated fadeInLeft">
+            <div class="form-group row animated flipInX">
               <div class="col-sm-8">
                     <label>Universidad </label>
                     <input type="text" name="college" id="college" ng-model="userSel._college" ng-keyup="completeCollege(userSel._college)" class="form-control" placeholder="Universidad"/>
@@ -68,7 +68,7 @@
               </div>
             </div>
 
-            <div class="form-group row animated fadeInRight">
+            <div class="form-group row animated flipInX">
               <div class="col-sm-8">
                     <label>Carrera </label>
                     <input type="text" name="carrera" id="carrera" ng-model="userSel._career" ng-keyup="completeCareer(userSel._career)" class="form-control" placeholder="Carrera"/>
@@ -80,12 +80,24 @@
           </div>
 
           <div ng-show="type == 'vprof' ">
-            <div class="form-group animated fadeInRight">
+            <div class="form-group animated flipInX">
               <label>Profesión </label>
               <input type="text" class="form-control" placeholder="Profesión"
                   ng-model="userSel._professional_degree">
             </div>
           </div>
+          
+          <div class="form-group">
+                        <div
+                vc-recaptcha
+                theme="'light'"
+                key="userSel.key"
+                on-create="setWidgetId(widgetId)"
+                on-success="setResponse(response)"
+                on-expire="cbExpiration()"
+            ></div>
+          </div>
+  
 
           <div class="form-group">
             <button type="submit" id="btn-send" ng-class="classTop" class="btn btn-center btn-transparent-gmail">
@@ -157,10 +169,13 @@
           </div>
 
           <p>{{  dataResponse.message }}</p>
+          <p class="animate fadeIn">{{  resolvRecaptcha }}</p>
         </div>
 
 
-
+          <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6LdwgCwUAAAAAFdgtXnF1qYWrVl6lxSl_frWu3Ck"></div>
+          </div>
       </form>
       </div>
 

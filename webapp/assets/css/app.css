@@ -351,7 +351,13 @@ nav{
     background-color:#f9f9f9;  
 }
 /* Fin Make Autocomplete Textbox  */
-
+/* infomacion */
+.p-info-text{
+    margin-top: 15%;
+}
+.info-text p{
+    font-size: 18px;
+}
 /*Estilo button*/
 
 .btn-transparent-gmail{
@@ -537,6 +543,12 @@ nav{
     .img-build{
         margin-top: 10%;
         width: 150px;
+    }
+    .info-text p{
+        font-size: 14px;
+    }
+    .p-info-text{
+       margin-top: 0;
     }
 }
 @media only screen and (max-width : 480px) {

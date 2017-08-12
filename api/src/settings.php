@@ -19,10 +19,10 @@ return [
         //configuracion del Token y la base de datos
         'app_token_name'    => 'x#Je3r',
         'connectionString'  =>[
-            'dns'   => 'mysql:host=localhost;dbname=ccbol_db;charset=utf8',
-            'user'  =>  'root',
-            'pass'  =>  '',
-            'name_db' => 'ccbol_db',
+            'dns'   => 'mysql:host=localhost;dbname=grupocie_ccbol;charset=utf8',
+            'user'  =>  'grupociencia',
+            'pass'  =>  '3FH~E!KJPvnf',
+            'name_db' => 'grupocie_ccbol',
             'host' => 'localhost'
         ]
 

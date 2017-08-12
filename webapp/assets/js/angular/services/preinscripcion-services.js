@@ -8,7 +8,7 @@ app.factory('preincripcionServices', ['$http','$q','$rootScope', function($http,
 					// console.log(datos);
                     $http({
                       method: 'POST',
-					  	url: 'http://grupo-ciencia.com/api-ccbol/public/user/insertStudent/',
+					  	url: 'http://grupo-ciencia.com/api-ccbol-2/public/user/insertStudent/',
  						data: datos
                     	})
                         .then(function successCallback(response) {
@@ -27,7 +27,7 @@ app.factory('preincripcionServices', ['$http','$q','$rootScope', function($http,
 					// console.log(datos);
                     $http({
                       method: 'POST',
-			  		  url: 'http://grupo-ciencia.com/api-ccbol/public/user/insertProfessional/',
+			  		  url: 'http://grupo-ciencia.com/api-ccbol-2/public/user/insertProfessional/',
  						data: datos
                     	})
                         .then(function successCallback(response) {

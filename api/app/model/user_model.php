@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+
 use App\Lib\Response,
 	App\Lib\Security;
 
@@ -73,38 +74,67 @@ class  UserModel
 
 	/* INSERTAR Usuario */
 	public function insertStudent($data){
-		$this->mysqli->multi_query("CALL insertStudent('".$data['_name']."',
-													'".$data['_last_name']."',
-													'".$data['_ci']."',
-													'".$data['_email']."',
-													'".$data['_city']."',	
-													'".$data['_college']."',
-													'".$data['_career']."')");
-			$res = $this->mysqli->store_result();
-			$res = $res->fetch_array();
-			mysqli_close($this->mysqli);
-			if($res[1]=="yes")
-				$res = array("message"=>$res[0], "error"=>$res[1], "response"=>true);
-			else
-				$res = array("message"=>$res[0], "ci"=>$res[2], "error"=>$res[1], "response"=>true);
-			return $res;	
+			$recaptchadata =$data['grecaptcharesponse'];	
+			if(isset($recaptchadata)){
+				$secret = '6Ld_eCwUAAAAADTfNzABC8-JsuEYUwGO_4flVZOY';
+				$recaptcha = new \ReCaptcha\ReCaptcha($secret);
+				 $resp = $recaptcha->verify($recaptchadata, 'localhost');
+				  if ($resp->isSuccess()){
+						$this->mysqli->multi_query("CALL insertStudent('".$data['_name']."',
+																'".$data['_last_name']."',
+																'".$data['_ci']."',
+																'".$data['_email']."',
+																'".$data['_city']."',	
+																'".$data['_college']."',
+																'".$data['_career']."')");
+						$res = $this->mysqli->store_result();
+						$res = $res->fetch_array();
+						mysqli_close($this->mysqli);
+						if($res[1]=="yes")
+							$res = array("message"=>$res[0], "error"=>$res[1], "response"=>true);
+						else
+							$res = array("message"=>$res[0], "id"=>$this->security->encriptar($res[2]), "error"=>$res[1], "response"=>true);
+						return $res;	
+					}else{
+
+					  $res = array("message"=>'eres un robot',"error"=>'yes',"response"=>true);
+					  return $res;
+				  }
+
+			}
+	
 	}
 
 	public function insertProfessional($data){
-		$this->mysqli->multi_query("CALL insertProfessional('".$data['_name']."',
-													'".$data['_last_name']."',
-													'".$data['_ci']."',
-													'".$data['_email']."',
-													'".$data['_city']."',
-													'".$data['_professional_degree']."')");
-			$res = $this->mysqli->store_result();
-			$res = $res->fetch_array();
-			mysqli_close($this->mysqli);
-			if($res[1]=="yes")
-				$res = array("message"=>$res[0], "error"=>$res[1], "response"=>true);
-			else
-				$res = array("message"=>$res[0], "ci"=>$res[2], "error"=>$res[1], "response"=>true);
-			return $res;		
+			//importante https://www.phpbb.com/community/viewtopic.php?f=556&t=2404186
+			$recaptchadata =$data['grecaptcharesponse'];	
+			if(isset($recaptchadata)){
+				$secret = '6Ld_eCwUAAAAADTfNzABC8-JsuEYUwGO_4flVZOY';
+				$recaptcha = new \ReCaptcha\ReCaptcha($secret);
+				 $resp = $recaptcha->verify($recaptchadata, 'localhost');
+				  if ($resp->isSuccess()){
+						$this->mysqli->multi_query("CALL insertProfessional('".$data['_name']."',
+																'".$data['_last_name']."',
+																'".$data['_ci']."',
+																'".$data['_email']."',
+																'".$data['_city']."',
+																'".$data['_professional_degree']."')");
+						$res = $this->mysqli->store_result();
+						$res = $res->fetch_array();
+						mysqli_close($this->mysqli);
+						if($res[1]=="yes")
+							$res = array("message"=>$res[0], "error"=>$res[1], "response"=>true);
+						else
+							$res = array("message"=>$res[0], "id"=>$this->security->encriptar($res[2]), "error"=>$res[1], "response"=>true);
+						return $res;		
+					}else{
+
+					  $res = array("message"=>'eres un robot',"error"=>'yes',"response"=>true);
+					  return $res;
+				  }
+
+			}
+
 	}
 
 	//actualizar
