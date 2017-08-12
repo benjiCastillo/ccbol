@@ -96,11 +96,11 @@ nav{
 .nav-container ul li a{
     text-decoration: none;
     font-weight: 600;
-    color: #eb462a;;
+    color: #039be5;
 }
 .nav-container ul li a:hover, nav ul li a:active, nav ul li a:active {
     text-decoration: none;
-    color: #d7270a;
+    color: #00528a;
     
 }
 
@@ -178,7 +178,7 @@ nav{
 }	
 /*port*/
 #port{
-    background-image: url('../img/port-min.jpg');
+    background-image: url('../img/background-web.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -198,7 +198,7 @@ nav{
     position: relative;
 }
 #port .titulo-ccbol:before, #port .titulo-ccbol:after {
-    background-color: #fc5f45;
+    background-color: #039be5;
     content: "";
     position: absolute;
     top: 16px;
@@ -234,7 +234,7 @@ nav{
     text-align: center;
 }
 .img-port-slide{
-    max-width: 265px;
+    max-width: 400px;
     margin: 0 auto;
     display: block;
 }
@@ -245,7 +245,7 @@ nav{
     font-weight: 600;
     text-align: center;
     font-size: 2.5rem;
-    color: #eb462a;
+    color: #039be5;
 }
 .col-timer{
     text-align: center;
@@ -253,7 +253,7 @@ nav{
     padding-left: 1px;
 }
 .box{
-    background: #eb462a;
+    background: #039be5;
 
 }
 .tag-dia,.tag-hora,.tag-minuto,.tag-segundo{
@@ -271,11 +271,11 @@ nav{
     margin: 0 auto
 }
 .img-ccbol{
-    width: 200px;
+    width: 250px;
     margin-top: 25%;
 } 
 .img-sistemas{
-    width: 200px;
+    width: 250px;
 }
 /*footer*/
 .footer{
@@ -362,18 +362,18 @@ nav{
 
 .btn-transparent-gmail{
      background: transparent ;
-    border: 2px solid #ea4f3e ;
-    color:#ea4f3e;
+    border: 2px solid #039be5 ;
+    color:#039be5;
     text-shadow: none;
     background-image: none;
 }
 .btn-transparent-gmail path{
-    fill: #ea4f3e;
+    fill: #039be5;
 }
 
 .btn-transparent-gmail:hover path, .btn-transparent-gmail:hover {
-    background: #ea4f3e;
-    border: 2px solid #ea4f3e;
+    background: #039be5;
+    border: 2px solid #039be5;
     color: #fff;
   transition-property: all;
   -webkit-transition-duration: 0.3s;
@@ -446,15 +446,17 @@ nav{
 }
 /*exito en la preinscripcion*/  
 .text-succes-pre-inscripcion{
-    color:#eb462a;
+    color:#039be5;
     font-size: 20px;
 }
 .tit-form-pre-ins{
+    color:#039be5;
     font-size: 30px;
     margin-bottom: 0px;
     margin: 0;
 }
 .titulo-preinscripcion{
+    color:#039be5;
     font-size: 45px;
     margin-bottom: 0px;
 }
@@ -499,7 +501,7 @@ nav{
         font-size: 1.6rem;
     }
     .img-port-slide{
-        width: 180px;
+        width: 250px;
     }
     #port .titulo-ccbol{
         font-size: 2.5rem;

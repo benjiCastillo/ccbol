@@ -4,6 +4,7 @@ var app = angular.module('ccbolApp',
 	'ccbolApp.homeCtrl',
     'ccbolApp.ubicacionCtrl',
     'ccbolApp.expositoresCtrl',
+    'ccbolApp.programaCtrl',
     'ccbolApp.preinscripcionCtrl',
     'ccbolApp.preincripcionServices'
     ]
@@ -87,7 +88,8 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
         controller: 'homeCtrl'
 	})
 	.when('/programa', {
-		templateUrl: 'assets/js/angular/pages/building.html'
+        templateUrl: 'assets/js/angular/pages/programa.html',
+        controller: 'programaCtrl'
     })
     .when('/expositores', {
         templateUrl: 'assets/js/angular/pages/expositores.html',
