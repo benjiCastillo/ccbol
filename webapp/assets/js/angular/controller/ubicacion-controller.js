@@ -101,7 +101,7 @@ app.controller('ubicacionCtrl', ['$scope',function($scope){
              {    id:'3',  
                   title : 'Casa de la Cultura Universitaria',
                   desc : 'Calle Aniceto Arce entre Ravelo y Arenales',
-                  portada : 'port-min.jpg',
+                  portada : 'casadelacultura-min.jpg',
                   long : -65.2593696
               }
           ];
