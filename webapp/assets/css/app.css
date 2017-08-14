@@ -77,8 +77,9 @@ nav{
     vertical-align: middle;
 }
 .nav-container .logo__image{
-    max-width: 140px;
+    max-width: 124px;
     max-height: 80px;
+    margin-top: 10px;
 }
 /* navigation-col__links*/
 .nav-container .navigation-col__links{
@@ -190,8 +191,8 @@ nav{
     display: block;
     font-family: 'Roboto', sans-serif;
     font-size: 3.5rem;
-    color: white;
-    text-shadow: 0px 1px 3px #2D2D2D;
+    color: #333;
+    text-shadow: 0px 1px 3px #999;
     font-weight: bold;
     text-align: center;
     margin-bottom:2%; 
@@ -215,8 +216,8 @@ nav{
     display: block;
     font-family: 'Roboto', sans-serif;
     font-size: 2.2rem;
-    color: white;
-    text-shadow: 0px 1px 3px #2D2D2D;
+    color: #333;
+    text-shadow: 0px 1px 3px #999;
     font-weight: bold;
     text-align: center;
     margin-bottom:2%; 
@@ -234,7 +235,7 @@ nav{
     text-align: center;
 }
 .img-port-slide{
-    max-width: 400px;
+    max-width: 340px;
     margin: 0 auto;
     display: block;
 }
@@ -488,6 +489,7 @@ nav{
     .nav-container .logo__image{
         max-width: 140px;
         max-height: 55px;
+        margin: 0;
     }
     #main-container{
         width: 100%;
@@ -501,7 +503,7 @@ nav{
         font-size: 1.6rem;
     }
     .img-port-slide{
-        width: 250px;
+        width: 200px;
     }
     #port .titulo-ccbol{
         font-size: 2.5rem;

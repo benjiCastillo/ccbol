@@ -10,7 +10,7 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
     $scope.resolvRecaptcha = '';
 
 
-                console.log("this is your app's controller");
+                // console.log("this is your app's controller");
                 $scope.response = null;
                 $scope.widgetId = null;
 
@@ -19,13 +19,13 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
                 };
 
                 $scope.setResponse = function (response) {
-                    console.info('Response available');
+                    // console.info('Response available');
 
                     $scope.response = response;
                 };
 
                 $scope.setWidgetId = function (widgetId) {
-                    console.info('Created widget ID: %s', widgetId);
+                    // console.info('Created widget ID: %s', widgetId);
 
                     $scope.widgetId = widgetId;
                 };
@@ -106,14 +106,14 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
                 $scope.resolvRecaptcha = 'Porfavor resuelva el captcha y envíe';
             }else {
                 $scope.resolvRecaptcha =''
-                console.log(vcRecaptchaService.getResponse());
+                // console.log(vcRecaptchaService.getResponse());
                 data.grecaptcharesponse = vcRecaptchaService.getResponse() ;
 
                 $scope.loader = true;
                 $scope.classTop = 'padding-top-0';
                 if(type=='vest') {
                     preincripcionServices.guardarEst( data ).then(function(){
-                        console.log(preincripcionServices.response)
+                        // console.log(preincripcionServices.response)
                         $scope.dataResponse = preincripcionServices.response;
                         $scope.loader = false;
                         $scope.classTop = 'padding: 8px 1.5em 8px;';
@@ -131,7 +131,7 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
                 } else {
                     if(type=='vprof') {
                         preincripcionServices.guardarProf( data ).then(function(){
-                            console.log(preincripcionServices.response)
+                            // console.log(preincripcionServices.response)
                             $scope.loader = false;
                             $scope.dataResponse = preincripcionServices.response;
                             $scope.classTop = 'padding: 8px 1.5em 8px;';

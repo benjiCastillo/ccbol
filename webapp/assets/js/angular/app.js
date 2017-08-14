@@ -67,7 +67,7 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 
             if (newElement.href && newElement.href.indexOf('//fonts.googleapis.com/css?family=Roboto') > -1) {
 
-                console.info('Prevented Roboto from loading!');
+                // console.info('Prevented Roboto from loading!');
                 return;
             }
 

@@ -81,7 +81,7 @@ app.controller('ubicacionCtrl', ['$scope',function($scope){
                   e.preventDefault();
                   google.maps.event.trigger(selectedMarker, 'click');
               }
-            console.log($scope.markers)
+            // console.log($scope.markers)
 
 
         $scope.locations = [
