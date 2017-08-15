@@ -154,6 +154,8 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
     };
 
 
+
+
     $scope.makeCode = function () {
         var qrcode = new QRCode(document.getElementById("qrcode"));
         if ($rootScope.qrData)
@@ -163,7 +165,7 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
     if($location.path() == '/registro-exitoso'){
         // if($scope.qrci)
         // $scope.makeCode();
-        if(typeof($rootScope.qrData) != 'undefined'){
+        if(typeof($rootScope.qrData) == 'undefined'){
             // console.log($rootScope.qrData)
             $scope.makeCode();
              $scope.successPreIns = true;
@@ -175,4 +177,8 @@ app.controller('preinscripcionCtrl', ['$scope','$rootScope','$location','preincr
     //    console.log(typeof($scope.qrci));
     }
 
+    $scope.downloadQr = function(){
+        console.log('funciona!')
+        window.location.href = "http://prueba.com?id="+$rootScope.qrData;
+    }
 }]) 

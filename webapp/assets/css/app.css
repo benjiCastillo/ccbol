@@ -262,7 +262,7 @@ nav{
 }
 #dia,#hora, #minuto, #segundo{
     color: white;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
 }
 /*img*/
@@ -553,6 +553,9 @@ nav{
     }
     .p-info-text{
        margin-top: 0;
+    }
+    #dia,#hora, #minuto, #segundo{
+        size: 18px;
     }
 }
 @media only screen and (max-width : 480px) {

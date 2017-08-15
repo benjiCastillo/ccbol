@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="titulo-ubicacion" data-aos='fade-up'>Síntesis Conferencias, Tutoriales y Talleres CCBol2017</h2>
+        </div>
+    </div>
+    
+    <div class="row" ng-repeat="expositor in expositores" style="margin:3%" data-aos="fade-up">
+        <div class="col-md-3">
+            <img ng-src="assets/img/conferencistas/{{expositor.image}}" class="img-responsive img-expo" alt="">
+            <p class="name-expo">{{ expositor.name }} </p>
+        </div>
+        <div class="col-md-9">
+            <h3>{{ expositor.titulo }}</h3>
+            <p>{{ expositor.contenido }}</p>
+            <p>{{ expositor.parte1}}</p>
+            <p>{{ expositor.parte2}}</p>
+        </div>    
+    </div>
+    
+
+</div>
+<br><br>
+        <footer>
+            <center><span>CCBOL SUCRE 2017</span></center>
+        </footer>
+        <br><br>

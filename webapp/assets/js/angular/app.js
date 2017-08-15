@@ -3,6 +3,7 @@ var app = angular.module('ccbolApp',
     'jcs-autoValidate',
 	'ccbolApp.homeCtrl',
     'ccbolApp.ubicacionCtrl',
+    'ccbolApp.sintesisCtrl',
     'ccbolApp.expositoresCtrl',
     'ccbolApp.programaCtrl',
     'ccbolApp.preinscripcionCtrl',
@@ -29,29 +30,29 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
     var mc = new Hammer(menu);
     var conPanright = 0;
     var conPanleft = 0;
-        mc.on("panleft panright tap press", function(ev) {
-            if(ev.type == 'panright'){
-                conPanright ++;
+        // mc.on("panleft panright tap press", function(ev) {
+        //     if(ev.type == 'panright'){
+        //         conPanright ++;
 
-            }
-            if(ev.type == 'panleft'){
-                conPanleft++;
-            }
-            // console.log(conPanright);
-            if(conPanright == 5){
-                // console.log('abrir');
-                $('#menu-xs-sm').css("left", "0px");
-                $('#menu-xs-sm').attr("data-active","true");
-                conPanright = 0;
-            }
-            // console.log(conPanleft);
-            if(conPanleft == 5){
-                //  console.log('cerrar');
-                $('#menu-xs-sm').css("left", "-200px");
-                $('#menu-xs-sm').attr("data-active","false");
-                conPanleft = 0;
-            }
-        });
+        //     }
+        //     if(ev.type == 'panleft'){
+        //         conPanleft++;
+        //     }
+        //     // console.log(conPanright);
+        //     if(conPanright == 5){
+        //         // console.log('abrir');
+        //         $('#menu-xs-sm').css("left", "0px");
+        //         $('#menu-xs-sm').attr("data-active","true");
+        //         conPanright = 0;
+        //     }
+        //     // console.log(conPanleft);
+        //     if(conPanleft == 5){
+        //         //  console.log('cerrar');
+        //         $('#menu-xs-sm').css("left", "-200px");
+        //         $('#menu-xs-sm').attr("data-active","false");
+        //         conPanleft = 0;
+        //     }
+        // });
      $scope.closeMenu = function(){
             $('#menu-xs-sm').css("left", "-200px");
             $('#menu-xs-sm').attr("data-active","false");
@@ -109,6 +110,13 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 	})        
     .when('/noticias', {
 		templateUrl: 'assets/js/angular/pages/building.html'
+    })    
+    .when('/convocatorias', {
+		templateUrl: 'assets/js/angular/pages/convocatorias.html'
+    })      
+    .when('/sintesis', {
+        templateUrl: 'assets/js/angular/pages/sintesis.html',
+        controller:'sintesisCtrl'
 	})               
 	.otherwise({ 
 		redirectTo: '/', 

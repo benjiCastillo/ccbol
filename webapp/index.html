@@ -7,6 +7,7 @@
     <meta name="Description" content="Congreso Nacional de Ciencias de la Computación, CCBOL - SUCRE 2017">
     <meta name="Keywords" content="CCBOL, SUCRE, 2017, hackathon sucre, ccbol 2017">
     <meta name="robots" content="index,follow" />
+    <base href="/" target="">
     <!-- OpenGraph metadata-->
     <meta property="og:locale" content="es_LA" />
     <meta property="og:type" content="website" />
@@ -50,6 +51,7 @@
     <link rel="stylesheet" href="assets/css/ubicacion.css">
     <link rel="stylesheet" href="assets/css/programa.css">
     <link rel="stylesheet" href="assets/css/expositores.css">
+    <link rel="stylesheet" href="assets/css/sintesis.css">
     <!--fonts-->
     <!--<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
     <!--angular-->
@@ -68,6 +70,7 @@
     <script src="assets/js/angular/controller/ubicacion-controller.js"></script>
     <script src="assets/js/angular/controller/expositores-controller.js"></script>
     <script src="assets/js/angular/controller/programa-controller.js"></script>
+    <script src="assets/js/angular/controller/sintesis-controller.js"></script>
     <!--services-->
     <script src="assets/js/angular/services/preinscripcion-services.js"></script>
 
@@ -95,6 +98,8 @@
                         <li><a href="#/programa" ng-click="closeMenu()">PROGRAMA</a></li>
                         <li><a href="#/expositores" ng-click="closeMenu()">EXPOSITORES</a></li>
                         <li><a href="#/ubicacion" ng-click="closeMenu()">UBICACIÓN</a></li>
+                        <li><a href="#/convocatorias" ng-click="closeMenu()">CONVOCATORIAS</a></li>
+                        <li><a href="#/sintesis" ng-click="closeMenu()">SÍNTESIS</a></li>
                         <!-- <li><a href="#/noticias" ng-click="closeMenu()">NOTICIAS</a></li> -->
                     </ul>
                 </div>
@@ -113,6 +118,8 @@
                 <li class="menu-item"><a href="#/programa" ng-click="closeMenu()">PROGRAMA</a></li>
                 <li class="menu-item"><a href="#/expositores" ng-click="closeMenu()">EXPOSITORES</a></li>
                 <li class="menu-item"><a href="#/ubicacion" ng-click="closeMenu()">UBICACIÓN</a></li>
+                <li class="menu-item"><a href="#/convocatorias" ng-click="closeMenu()">CONVOCATORIAS</a></li>
+                <li class="menu-item"><a href="#/sintesis" ng-click="closeMenu()">SÍNTESIS</a></li>
                 <!-- <li class="menu-item"><a href="#/noticias" ng-click="closeMenu()">NOTICIAS</a></li> -->
             </ul>
         </div>
