@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-08-2017 a las 23:49:09
+-- Tiempo de generación: 15-08-2017 a las 20:39:17
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -24,7 +24,10 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`grupociencia`@`localhost` PROCEDURE `insertProfessional` (IN `_name` VARCHAR(50), IN `_last_name` VARCHAR(80), IN `_ci` VARCHAR(13), IN `_email` VARCHAR(50), IN `_city` VARCHAR(35), IN `_professional_degree` VARCHAR(75))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `countUser` ()  NO SQL
+SELECT COUNT(id) as contador FROM `user`$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertProfessional` (IN `_name` VARCHAR(50), IN `_last_name` VARCHAR(80), IN `_ci` VARCHAR(13), IN `_email` VARCHAR(50), IN `_city` VARCHAR(35), IN `_professional_degree` VARCHAR(75))  BEGIN
 DECLARE _id_user INT;
 	IF (SELECT EXISTS(SELECT * FROM user WHERE ci=_ci))THEN
 		SELECT 'Ha ocurrido un error, el CI ya está registrado, revisa este dato porfavor.' AS respuesta, 'yes' AS error;
@@ -40,7 +43,7 @@ DECLARE _id_user INT;
 	END IF;
 END$$
 
-CREATE DEFINER=`grupociencia`@`localhost` PROCEDURE `insertStudent` (IN `_name` VARCHAR(50), IN `_last_name` VARCHAR(80), IN `_ci` VARCHAR(13), IN `_email` VARCHAR(50), IN `_city` VARCHAR(35), IN `_college` VARCHAR(75), IN `_career` VARCHAR(75))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertStudent` (IN `_name` VARCHAR(50), IN `_last_name` VARCHAR(80), IN `_ci` VARCHAR(13), IN `_email` VARCHAR(50), IN `_city` VARCHAR(35), IN `_college` VARCHAR(75), IN `_career` VARCHAR(75))  BEGIN
 DECLARE _id_user INT;
 	IF (SELECT EXISTS(SELECT * FROM user WHERE ci=_ci))THEN
 		SELECT 'Ha ocurrido un error, el CI ya está registrado, revisa este dato porfavor.' AS respuesta, 'yes' AS error;
@@ -56,7 +59,7 @@ DECLARE _id_user INT;
 	END IF;
 END$$
 
-CREATE DEFINER=`grupociencia`@`localhost` PROCEDURE `listEvent` ()  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listEvent` ()  BEGIN
 	IF(SELECT EXISTS(SELECT * FROM event))THEN
 		SELECT ev.id, ev.title, ev.description, ev.date, ev.date, ev.start_time, ex.name, ex.last_name, ex.degree, lo.site, lo.venue FROM event ev INNER JOIN expositor ex ON ev.id_expositor=ex.id INNER JOIN location lo ON ev.id_location=lo.id;
 		SELECT 'not' AS error;
@@ -234,6 +237,14 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `last_name`, `ci`, `email`, `city`, `paid`, `registration_date`) VALUES
+(1, 'Jose ', 'Chirinos', '321351', 'jose@gmail.com', 'Sucre', 0, '2017-08-15 15:14:03'),
+(2, 'Daniel', 'Choque', '5213625', 'daniel@gmail.com', 'Sucre', 0, '2017-08-15 15:28:09');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -302,7 +313,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
