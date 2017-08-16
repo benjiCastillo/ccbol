@@ -21,16 +21,10 @@ app.controller('ubicacionCtrl', ['$scope',function($scope){
                   long : -65.2593696
               },
               {
-                  place : 'Teatro gran Mariscal',
+                  place : 'Teatro Gran Mariscal Sucre',
                   desc : 'Teatro',
                   lat : -19.0438658,
                   long : -65.263148
-              },
-                {
-                  place : 'Complejo Senac',
-                  desc : 'Julio Pinkas',
-                  lat : -19.056539,
-                  long :-65.2618196
               },
              {
                   place : 'Sib Chiquisaca',
@@ -87,20 +81,20 @@ app.controller('ubicacionCtrl', ['$scope',function($scope){
         $scope.locations = [
               {   id:'1',  
                   title : 'Facultad de Tecnologia',
-                  desc : 'Calle Regimientos Campos y Ricardo Andrade',
+                  desc : 'Calle Regimiento Campos No 180 y Ricardo Andrade',
                   portada : 'tecnologia-min.jpg',
                   long : -65.257055
               },
 
               {   id:'2',  
-                  title : 'Teatro Gran Mariscal',
+                  title : 'Teatro Gran Mariscal Sucre',
                   desc : 'Calle Km 7, Arenales y Pilinco',
                   portada : 'teatro-min.jpg',
                   long : -65.263148
               },
              {    id:'3',  
                   title : 'Casa de la Cultura Universitaria',
-                  desc : 'Calle Aniceto Arce entre Ravelo y Arenales',
+                  desc : 'Calle Aniceto Arce N° 28 entre Ravelo y Arenales',
                   portada : 'casadelacultura-min.jpg',
                   long : -65.2593696
               }

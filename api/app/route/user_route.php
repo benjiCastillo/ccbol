@@ -35,6 +35,14 @@ $app->group('/user',function(){
 				   	);
 	});
 
+	$this->get('/countUser/',function($req, $res, $args){
+
+		return $res->withHeader('Content-type', 'aplication/json')
+			       -> write(
+						json_encode($this->model->User->countUser())
+
+				   	);
+	});
 	$this->post('/insertProfessional/',function($req, $res, $args){
 
 		return $res->withHeader('Content-type', 'aplication/json')
@@ -43,7 +51,14 @@ $app->group('/user',function(){
 
 				   	);
 	});
+	$this->post('/datauser/',function($req, $res, $args){
 
+		return $res->withHeader('Content-type', 'aplication/json')
+			       -> write(
+						json_encode($this->model->User->dataUser($req->getParsedBody()))
+
+				   	);
+	});
 	$this->put('/{id}',function($req, $res, $args){
 
 		return $res->withHeader('Content-type', 'aplication/json')

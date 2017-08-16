@@ -6,6 +6,7 @@ var app = angular.module('ccbolApp',
     'ccbolApp.sintesisCtrl',
     'ccbolApp.expositoresCtrl',
     'ccbolApp.programaCtrl',
+    'ccbolApp.generateQrCtrl',
     'ccbolApp.preinscripcionCtrl',
     'ccbolApp.preincripcionServices'
     ]
@@ -117,17 +118,25 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
     .when('/sintesis', {
         templateUrl: 'assets/js/angular/pages/sintesis.html',
         controller:'sintesisCtrl'
-	})               
+    })
+    .when('/generarqr', {
+        templateUrl: 'assets/js/angular/pages/generate-qr.html',
+        controller:'generateQrCtrl'
+    }) 
+    .when('/userqr', {
+        templateUrl: 'assets/js/angular/pages/generate.html',
+        controller:'generateQrCtrl'
+	})                              
 	.otherwise({ 
 		redirectTo: '/', 
 	});
 });
 
-app.config(['$locationProvider', function($locationProvider) {
-  $locationProvider.hashPrefix('');
-}]);
-
-
+    angular.module('ccbolApp').config(['$locationProvider',
+		function($localtionProvider){
+			$localtionProvider.html5Mode(true);
+		}
+	]);
 
 app.run(function($rootScope,$location) {
     var routespermission = ['/ccbol'];
