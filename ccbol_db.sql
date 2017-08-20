@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-08-2017 a las 20:39:17
+-- Tiempo de generación: 20-08-2017 a las 04:15:22
 -- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.23
+-- Versión de PHP: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,6 +26,15 @@ DELIMITER $$
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `countUser` ()  NO SQL
 SELECT COUNT(id) as contador FROM `user`$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteUser` (IN `_id_user` INT)  BEGIN
+	IF(SELECT EXISTS(SELECT * FROM user WHERE id=_id_user))THEN
+		DELETE FROM user WHERE id=_id_user;
+        SELECT 'Registro eliminado exitosamente' as respuesta, 'not' as error;
+    ELSE
+		SELECT 'Error, no existe el registro' as respuesta, 'yes' as error;
+    END IF;
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insertProfessional` (IN `_name` VARCHAR(50), IN `_last_name` VARCHAR(80), IN `_ci` VARCHAR(13), IN `_email` VARCHAR(50), IN `_city` VARCHAR(35), IN `_professional_degree` VARCHAR(75))  BEGIN
 DECLARE _id_user INT;
@@ -65,6 +74,178 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listEvent` ()  BEGIN
 		SELECT 'not' AS error;
     ELSE
 		SELECT 'No existen Actividades' AS respuesta, 'yes' AS error; 
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listProfessional` ()  BEGIN
+	SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, p.professional_degree
+	FROM user u INNER JOIN professional p ON u.id=p.id_user;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listProfessionals` ()  BEGIN
+	IF(SELECT EXISTS( SELECT * FROM user u INNER JOIN professional p ON u.id=p.id_user))THEN
+		SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, p.professional_degree
+		FROM user u INNER JOIN professional p ON u.id=p.id_user;
+    ELSE
+		SELECT 'No existen registros' as respuesta, 'yes' as error;
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listStudents` ()  BEGIN
+	IF(SELECT EXISTS(SELECT * FROM user u INNER JOIN student s ON u.id=s.id_user))THEN
+		SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, s.college, s.career 
+		FROM user u INNER JOIN student s ON u.id=s.id_user;
+    ELSE
+		SELECT 'No existen registros' as respuesta, 'yes' as error;
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listUser` (IN `_id_user` INT)  BEGIN
+	IF(SELECT EXISTS(SELECT * FROM user WHERE id=_id_user))THEN
+		IF(SELECT EXISTS(SELECT * FROM student WHERE id_user=_id_user))THEN
+			SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, s.college, s.career 
+            FROM user u INNER JOIN student s ON u.id=s.id_user WHERE u.id=_id_user;
+		ELSE
+			IF(SELECT EXISTS( SELECT * FROM professional WHERE id_user=_id_user))THEN
+				SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, p.professional_degree
+				FROM user u INNER JOIN professional p ON u.id=p.id_user WHERE u.id=_id_user;
+            ELSE
+				SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+            END IF;
+        END IF;
+    ELSE
+		SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listUserBc` (IN `_id_user` INT)  BEGIN
+	IF(SELECT EXISTS(SELECT * FROM user WHERE id=_id_user))THEN
+		IF(SELECT EXISTS(SELECT * FROM student WHERE id_user=_id_user))THEN
+			SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, s.college, s.career 
+            FROM user u INNER JOIN student s ON u.id=s.id_user WHERE u.id=_id_user;
+		ELSE
+			IF(SELECT EXISTS( SELECT * FROM professional WHERE id_user=_id_user))THEN
+				SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, p.professional_degree
+				FROM user u INNER JOIN professional p ON u.id=p.id_user WHERE u.id=_id_user;
+            ELSE
+				SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+            END IF;
+        END IF;
+    ELSE
+		SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listUserCi` (IN `_ci` VARCHAR(13))  BEGIN
+DECLARE _id_user INT;
+	IF(SELECT EXISTS(SELECT * FROM user WHERE ci=_ci))THEN
+		SET _id_user=(SELECT id FROM user WHERE ci=_ci);
+		IF(SELECT EXISTS(SELECT * FROM student WHERE id_user=_id_user))THEN
+			SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, s.college, s.career 
+            FROM user u INNER JOIN student s ON u.id=s.id_user WHERE u.id=_id_user;
+		ELSE
+			IF(SELECT EXISTS( SELECT * FROM professional WHERE id_user=_id_user))THEN
+				SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, p.professional_degree
+				FROM user u INNER JOIN professional p ON u.id=p.id_user WHERE u.id=_id_user;
+            ELSE
+				SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+            END IF;
+        END IF;
+    ELSE
+		SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `listUsers` ()  BEGIN
+	IF(SELECT EXISTS(SELECT * FROM user))THEN
+		SELECT * FROM user u INNER JOIN student s ON u.id=s.id_user INNER JOIN professional p ON u.id=p.id_user;
+    ELSE
+		SELECT 'No existen registros' as respuesta, 'yes' as error;
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updateUser` (IN `_id_user` INT, IN `_name` VARCHAR(50), IN `_last_name` VARCHAR(80), IN `_ci` VARCHAR(13), IN `_email` VARCHAR(50), IN `_city` VARCHAR(35), IN `_paid` TINYINT, IN `_career` VARCHAR(75), IN `_college` TEXT)  BEGIN
+	IF(SELECT EXISTS(SELECT * FROM user WHERE id=_id_user))THEN
+		IF(SELECT EXISTS(SELECT * FROM student WHERE id_user=_id_user))THEN
+			UPDATE user SET name=_name, last_name=_last_name, ci=_ci, email=_email, 
+		city=_city, paid=_paid WHERE id=_id_user;
+        
+        UPDATE student SET college = _college, career=_career WHERE id_user=_id_user;
+		SELECT 'Registro actualizado correctamente' as respuesta, 'not' as error;
+        ELSE
+			IF(SELECT EXISTS( SELECT * FROM professional WHERE id_user=_id_user))THEN
+				UPDATE user SET name=_name, last_name=_last_name, ci=_ci, email=_email, 
+				city=_city, paid=_paid WHERE id=_id_user;
+                UPDATE professional SET professional_degree=_career WHERE id_user=_id_user;
+				SELECT 'Registro actualizado correctamente' as respuesta, 'not' as error;
+            ELSE
+				SELECT 'Error, no se encontró el registro' as respuesta, 'yes' as error; 
+            END IF;
+        END IF;
+    ELSE
+		SELECT 'Error, no se encontró el registro' as respuesta, 'yes' as error; 
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `userPaid` (IN `_id_user` INT)  BEGIN
+	IF(SELECT EXISTS(SELECT * FROM user WHERE id=_id_user))THEN
+		IF(SELECT EXISTS(SELECT * FROM student WHERE id_user=_id_user))THEN
+			UPDATE user SET paid=1 WHERE id=_id_user;
+			SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, s.college, s.career 
+            FROM user u INNER JOIN student s ON u.id=s.id_user WHERE u.id=_id_user;
+		ELSE
+			IF(SELECT EXISTS( SELECT * FROM professional WHERE id_user=_id_user))THEN
+				UPDATE user SET paid=1 WHERE id=_id_user;
+				SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, p.professional_degree
+				FROM user u INNER JOIN professional p ON u.id=p.id_user WHERE u.id=_id_user;
+            ELSE
+				SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+            END IF;
+        END IF;
+    ELSE
+		SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `userPaidBc` (IN `_id_user` INT)  BEGIN
+	IF(SELECT EXISTS(SELECT * FROM user WHERE id=_id_user))THEN
+		IF(SELECT EXISTS(SELECT * FROM student WHERE id_user=_id_user))THEN
+			UPDATE user SET paid=1 WHERE id=_id_user;
+			SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, s.college, s.career 
+            FROM user u INNER JOIN student s ON u.id=s.id_user WHERE u.id=_id_user;
+		ELSE
+			IF(SELECT EXISTS( SELECT * FROM professional WHERE id_user=_id_user))THEN
+				UPDATE user SET paid=1 WHERE id=_id_user;
+				SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, p.professional_degree
+				FROM user u INNER JOIN professional p ON u.id=p.id_user WHERE u.id=_id_user;
+            ELSE
+				SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+            END IF;
+        END IF;
+    ELSE
+		SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `userPaidCi` (IN `_ci` INT)  BEGIN
+DECLARE _id_user INT;
+	IF(SELECT EXISTS(SELECT * FROM user WHERE id=_id_user))THEN
+    SET _id_user=(SELECT id FROM user WHERE ci=_ci);
+		IF(SELECT EXISTS(SELECT * FROM student WHERE id_user=_id_user))THEN
+			UPDATE user SET paid=1 WHERE id=_id_user;
+			SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, s.college, s.career 
+            FROM user u INNER JOIN student s ON u.id=s.id_user WHERE u.id=_id_user;
+		ELSE
+			IF(SELECT EXISTS( SELECT * FROM professional WHERE id_user=_id_user))THEN
+				UPDATE user SET paid=1 WHERE id=_id_user;
+				SELECT u.name, u.last_name, u.ci, u.email, u.city, u.paid, p.professional_degree
+				FROM user u INNER JOIN professional p ON u.id=p.id_user WHERE u.id=_id_user;
+            ELSE
+				SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
+            END IF;
+        END IF;
+    ELSE
+		SELECT 'No se encontró el registro' as respuesta, 'yes' as error; 
     END IF;
 END$$
 
@@ -219,6 +400,13 @@ CREATE TABLE `student` (
   `career` varchar(75) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `student`
+--
+
+INSERT INTO `student` (`id_user`, `college`, `career`) VALUES
+(4, 'asdaws', 'sdwasda');
+
 -- --------------------------------------------------------
 
 --
@@ -241,8 +429,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `last_name`, `ci`, `email`, `city`, `paid`, `registration_date`) VALUES
-(1, 'Jose ', 'Chirinos', '321351', 'jose@gmail.com', 'Sucre', 0, '2017-08-15 15:14:03'),
-(2, 'Daniel', 'Choque', '5213625', 'daniel@gmail.com', 'Sucre', 0, '2017-08-15 15:28:09');
+(4, 'upsa', 'asd', '12517815', '12111@gmail.com', 'Sucre2', 1, '2017-08-19 02:25:30');
 
 --
 -- Índices para tablas volcadas
@@ -313,7 +500,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

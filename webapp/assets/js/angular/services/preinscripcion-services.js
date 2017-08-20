@@ -40,7 +40,44 @@ app.factory('preincripcionServices', ['$http','$q','$rootScope', function($http,
 								return d.resolve();
                         });
                        return d.promise;	 
-		}
+		},
+		dataUser : function(datos){
+					var d = $q.defer();
+					// console.log(datos);
+                    $http({
+                      method: 'POST',
+			  		  url: 'http://grupo-ciencia.com/api-ccbol-2/public/user/datauser/',
+ 						data: datos
+                    	})
+                        .then(function successCallback(response) {
+								console.log(response.data);
+								self.response 	= response.data;
+								return d.resolve()	
+                            }, function errorCallback(response) {
+								
+								self.response 	= response.data
+								return d.resolve();
+                        });
+                       return d.promise;	 
+		},			
+		countUser : function(){
+					var d = $q.defer();
+					// console.log(datos);
+                    $http({
+                      method: 'GET',
+					  	url: 'http://grupo-ciencia.com/api-ccbol-2/public/user/countUser/'
+                    	})
+                        .then(function successCallback(response) {
+								console.log(response.data);
+								self.response 	= response.data;
+								return d.resolve()	
+                            }, function errorCallback(response) {
+								
+								self.response 	= response.data
+								return d.resolve();
+                        });
+                       return d.promise;	 
+		}						
 	}
 
 
