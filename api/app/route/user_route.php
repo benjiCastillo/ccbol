@@ -17,6 +17,74 @@ $app->group('/user',function(){
 				   		json_encode($this->model->User->login($req->getParsedBody()))
 				   	);
 	});
+
+	$this->get('/listStudents/',function($req, $res, $args){
+		return $res->withHeader('Content-type', 'aplication/json')
+				   ->write(
+				   		json_encode($this->model->User->listStudents())
+				   		
+				   	);
+	});
+
+	$this->get('/listProfessionals/',function($req, $res, $args){
+		return $res->withHeader('Content-type', 'aplication/json')
+				   ->write(
+				   		json_encode($this->model->User->listProfessionals())
+				   		
+				   	);
+	});
+
+	
+	$this->get('/userPaidBc/{id}',function($req, $res, $args){
+		return $res->withHeader('Content-type', 'aplication/json')
+				   ->write(
+				   		json_encode($this->model->User->userPaidBc($args['id']))
+				   		
+				   	);
+	});
+
+	// $this->get('/userPaidCi/{id}',function($req, $res, $args){
+	// 	return $res->withHeader('Content-type', 'aplication/json')
+	// 			   ->write(
+	// 			   		json_encode($this->model->User->userPaidCi($args['id']))
+				   		
+	// 			   	);
+	// });
+
+	$this->post('/userPaidCi/',function($req, $res, $args){
+		
+				return $res->withHeader('Content-type', 'aplication/json')
+						   -> write(
+								json_encode($this->model->User->userPaidCi($req->getParsedBody()))
+		
+							   );
+			});
+
+	$this->get('/listUserBc/{id}',function($req, $res, $args){
+		return $res->withHeader('Content-type', 'aplication/json')
+				   ->write(
+				   		json_encode($this->model->User->listUserBc($args['id']))
+				   		
+				   	);
+	});
+
+	// $this->get('/listUserCi/{id}',function($req, $res, $args){
+	// 	return $res->withHeader('Content-type', 'aplication/json')
+	// 			   ->write(
+	// 			   		json_encode($this->model->User->listUserCi($args['id']))
+				   		
+	// 			   	);
+	// });
+
+	$this->post('/listUserCi/',function($req, $res, $args){
+		
+				return $res->withHeader('Content-type', 'aplication/json')
+						   -> write(
+								json_encode($this->model->User->listUserCi($req->getParsedBody()))
+		
+							   );
+			});
+
 	$this->post('/',function($req, $res, $args){
 
 		return $res->withHeader('Content-type', 'aplication/json')
@@ -43,6 +111,15 @@ $app->group('/user',function(){
 
 				   	);
 	});
+
+	$this->post('/updateUser/',function($req, $res, $args){
+		
+				return $res->withHeader('Content-type', 'aplication/json')
+						   -> write(
+								json_encode($this->model->User->updateUser($req->getParsedBody()))
+		
+							   );
+			});
 
 	$this->put('/{id}',function($req, $res, $args){
 

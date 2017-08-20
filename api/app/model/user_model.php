@@ -106,7 +106,7 @@ class  UserModel
 	}
 
 	public function insertProfessional($data){
-			//importante https://www.phpbb.com/community/viewtopic.php?f=556&t=2404186
+			// importante https://www.phpbb.com/community/viewtopic.php?f=556&t=2404186
 			$recaptchadata =$data['grecaptcharesponse'];	
 			if(isset($recaptchadata)){
 				$secret = '6Ld_eCwUAAAAADTfNzABC8-JsuEYUwGO_4flVZOY';
@@ -137,6 +137,90 @@ class  UserModel
 
 	}
 
+	public function listStudents($data){
+		$this->mysqli->multi_query("CALL listStudents()");
+		$res = $this->mysqli->store_result();
+		while($fila = $res->fetch_assoc()){
+			$arreglo[] = $fila;
+		}
+		$res = $arreglo;
+		mysqli_close($this->mysqli);
+		$res = array("message"=>$res, "response"=>true);
+		return $res;		
+	}
+
+	public function listProfessionals($data){
+		$this->mysqli->multi_query("CALL listProfessionals()");
+		$res = $this->mysqli->store_result();
+		while($fila = $res->fetch_assoc()){
+			$arreglo[] = $fila;
+		}
+		$res = $arreglo;
+		mysqli_close($this->mysqli);
+		$res = array("message"=>$res, "response"=>true);
+		return $res;		
+	}
+
+	public function userPaidBc($data){
+		$this->mysqli->multi_query(" CALL userPaidBc('".$data['_id_user']."')");
+
+		$res = $this->mysqli->store_result();
+			while ($fila = $res->fetch_assoc()) {
+				$arreglo[] = $fila;
+			}
+		mysqli_close($this->mysqli);
+		return $arreglo;		 
+}
+
+	public function userPaidCi($data){
+		$this->mysqli->multi_query(" CALL userPaidCi('".$data['_ci']."')");
+
+		$res = $this->mysqli->store_result();
+			while ($fila = $res->fetch_assoc()) {
+				$arreglo[] = $fila;
+			}
+		mysqli_close($this->mysqli);
+		return $arreglo;		 
+	}
+
+	public function listUserBc($data){
+		$this->mysqli->multi_query(" CALL listUserBc('".$data['_id_user']."')");
+
+		$res = $this->mysqli->store_result();
+			while ($fila = $res->fetch_assoc()) {
+				$arreglo[] = $fila;
+			}
+		mysqli_close($this->mysqli);
+		return $arreglo;		 
+}
+
+	public function listUserCi($data){
+		$this->mysqli->multi_query(" CALL listUserCi('".$data['_ci']."')");
+
+		$res = $this->mysqli->store_result();
+			while ($fila = $res->fetch_assoc()) {
+				$arreglo[] = $fila;
+			}
+		mysqli_close($this->mysqli);
+		return $arreglo;		 
+	}
+
+	public function updateUser($data){
+		$this->mysqli->multi_query(" CALL updateUser('".$data['_id']."',
+														'".$data['_name']."',
+														'".$data['_last_name']."',
+														'".$data['_ci']."',
+														'".$data['_email']."',
+														'".$data['_city']."',
+														'".$data['_paid']."',
+														'".$data['_career']."',
+														'".$data['_college']."')");
+			$res = $this->mysqli->store_result();
+			$res = $res->fetch_assoc();
+			mysqli_close($this->mysqli);
+			return $res;					 
+	}
+	
 	//actualizar
 	public function update($data, $id){
 

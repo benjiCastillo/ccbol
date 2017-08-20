@@ -28,14 +28,6 @@ $app->group('/event',function(){
 				   	);
 	});
 
-	$this->post('/listEvent/',function($req, $res, $args){
-
-		return $res->withHeader('Content-type', 'aplication/json')
-			       -> write(
-						json_encode($this->model->Event->listEvent($req->getParsedBody()))
-				   	);
-	});
-
 	$this->put('/{id}',function($req, $res, $args){
 
 		return $res->withHeader('Content-type', 'aplication/json')
