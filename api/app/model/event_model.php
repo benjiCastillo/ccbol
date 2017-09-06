@@ -61,6 +61,7 @@ class  EventModel
 		return $data = $this->db->from($this->table, $id)
 								->fetch();  						 
 	}
+	
 	public function listEvent(){
 
 		$this->mysqli->multi_query(" CALL listEvent()");

@@ -55,6 +55,20 @@ class  ExpositorModel
 
 		];				  						 
 	}
+
+	public function listExpositors(){
+		
+				$this->mysqli->multi_query(" CALL listExpositors()");
+					$res = $this->mysqli->store_result();
+					while($fila = $res->fetch_assoc()){
+						$arreglo[] = $fila;
+					}
+					$res = $arreglo;
+					mysqli_close($this->mysqli);
+					$res = array("message"=>$res, "response"=>true);
+					return $res;	
+			}
+
 	//obtener
 	public function getExamen($id){
 

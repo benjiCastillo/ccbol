@@ -43,6 +43,14 @@ $app->group('/user',function(){
 				   	);
 	});
 
+	$this->get('/logout/{id}',function($req, $res, $args){
+		return $res->withHeader('Content-type', 'aplication/json')
+				   ->write(
+				   		json_encode($this->model->User->logout($args['id']))
+				   		
+				   	);
+	});
+
 	// $this->get('/userPaidCi/{id}',function($req, $res, $args){
 	// 	return $res->withHeader('Content-type', 'aplication/json')
 	// 			   ->write(
@@ -58,6 +66,14 @@ $app->group('/user',function(){
 								json_encode($this->model->User->userPaidCi($req->getParsedBody()))
 		
 							   );
+			});
+
+	$this->post('/adminLogin/',function($req, $res, $args){			
+				return $res->withHeader('Content-type', 'aplication/json')
+							-> write(
+								json_encode($this->model->User->adminLogin($req->getParsedBody()))
+				
+								);
 			});
 
 	$this->get('/listUserBc/{id}',function($req, $res, $args){
@@ -119,26 +135,16 @@ $app->group('/user',function(){
 
 				   	);
 	});
-	$this->post('/datauser/',function($req, $res, $args){
 
-<<<<<<< HEAD
 	$this->post('/updateUser/',function($req, $res, $args){
 		
-				return $res->withHeader('Content-type', 'aplication/json')
-						   -> write(
-								json_encode($this->model->User->updateUser($req->getParsedBody()))
-		
-							   );
-			});
-
-=======
 		return $res->withHeader('Content-type', 'aplication/json')
-			       -> write(
-						json_encode($this->model->User->dataUser($req->getParsedBody()))
-
-				   	);
-	});
->>>>>>> 7c2e7d0223c07ae1eaf4c6bb23035931b03df668
+					-> write(
+						json_encode($this->model->User->updateUser($req->getParsedBody()))
+		
+						);
+			});
+	
 	$this->put('/{id}',function($req, $res, $args){
 
 		return $res->withHeader('Content-type', 'aplication/json')

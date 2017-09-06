@@ -35,7 +35,8 @@ $container['model']	= function($c){
 		'Event'	=>	new App\Model\EventModel($c->db_mysqli),
 		'Expositor'	=>	new App\Model\ExpositorModel($c->db_mysqli),
 		'Location'	=>	new App\Model\LocationModel($c->db_mysqli),
-		'User'	=>	new App\Model\UserModel($c->db_mysqli)
+		'User'	=>	new App\Model\UserModel($c->db_mysqli),
+		'Sponsor'	=>	new App\Model\EsponsorModel($c->db_mysqli),
 	];
 };
 

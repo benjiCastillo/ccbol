@@ -145,7 +145,7 @@ class  UserModel
 		}
 		$res = $arreglo;
 		mysqli_close($this->mysqli);
-		$res = array("message"=>$res, "response"=>true);
+		$res = array("message"=>$res[0], "response"=>true);
 		return $res;		
 	}
 
@@ -157,7 +157,7 @@ class  UserModel
 		}
 		$res = $arreglo;
 		mysqli_close($this->mysqli);
-		$res = array("message"=>$res, "response"=>true);
+		$res = array("message"=>$res[0], "response"=>true);
 		return $res;		
 	}
 
@@ -168,30 +168,36 @@ class  UserModel
 			while ($fila = $res->fetch_assoc()) {
 				$arreglo[] = $fila;
 			}
+		$res = $arreglo;
 		mysqli_close($this->mysqli);
-		return $arreglo;		 
+		$res = array("message"=>$res[0], "response"=>true);
+		return $res;		 
 }
 
 	public function userPaidCi($data){
-		$this->mysqli->multi_query(" CALL userPaidCi('".$data['_ci']."')");
+		$this->mysqli->multi_query(" CALL userPaidCi('".$data."')");
 
 		$res = $this->mysqli->store_result();
 			while ($fila = $res->fetch_assoc()) {
 				$arreglo[] = $fila;
 			}
+		$res = $arreglo;
 		mysqli_close($this->mysqli);
-		return $arreglo;		 
+		$res = array("message"=>$res[0], "response"=>true);
+		return $res;		 
 	}
 
 	public function listUserBc($data){
-		$this->mysqli->multi_query(" CALL listUserBc('".$data['_id_user']."')");
+		$this->mysqli->multi_query(" CALL listUserBc('".$data."')");
 
 		$res = $this->mysqli->store_result();
 			while ($fila = $res->fetch_assoc()) {
 				$arreglo[] = $fila;
 			}
+		$res = $arreglo;
 		mysqli_close($this->mysqli);
-		return $arreglo;		 
+		$res = array("message"=>$res[0], "response"=>true);
+		return $res;		 
 }
 
 	public function listUserCi($data){
@@ -201,10 +207,35 @@ class  UserModel
 			while ($fila = $res->fetch_assoc()) {
 				$arreglo[] = $fila;
 			}
+			$res = $arreglo;
 		mysqli_close($this->mysqli);
+		$res = array("message"=>$res[0], "response"=>true);
 		return $arreglo;		 
 	}
 
+	public function adminLogin($data){
+		$this->mysqli->multi_query(" CALL adminLogin('".$data['_count']."',
+													'".$data['_password']."')");
+
+		$res = $this->mysqli->store_result();
+		$res = $res->fetch_assoc();
+		mysqli_close($this->mysqli);
+		return $res;			 
+	}
+
+	public function logout($data){
+		$this->mysqli->multi_query(" CALL logout('".$data."')");
+
+		$res = $this->mysqli->store_result();
+			while ($fila = $res->fetch_assoc()) {
+				$arreglo[] = $fila;
+			}
+			$res = $arreglo;
+		mysqli_close($this->mysqli);
+		$res = array("message"=>$res[0], "response"=>true);
+		return $res;
+	}
+	
 	public function updateUser($data){
 		$this->mysqli->multi_query(" CALL updateUser('".$data['_id']."',
 														'".$data['_name']."',

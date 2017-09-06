@@ -1,4 +1,4 @@
-<?php 
+5<?php 
 use App\Lib\Response;
 
 	$app->add(function ($req, $res, $next) {
@@ -11,12 +11,14 @@ use App\Lib\Response;
 
 $app->group('/expositor',function(){
 
-	$this->post('/login',function($req, $res, $args){
+	$this->get('/listExpositors/',function($req, $res, $args){
 		return $res->withHeader('Content-type', 'aplication/json')
 				   ->write(
-				   		json_encode($this->model->Expositor->login($req->getParsedBody()))
+				   		json_encode($this->model->Expositor->listExpositors())
+				   		
 				   	);
 	});
+
 	$this->post('/',function($req, $res, $args){
 
 		return $res->withHeader('Content-type', 'aplication/json')
