@@ -8,10 +8,10 @@ use App\Lib\Response,
 /**
 * Modelo usuario
 */
-class  LocationModel
+class  ProgrammingModel
 {
 	private $db;
-	private $table = 'location';
+	private $table = 'programming_week';
 	private $response;
 
 
@@ -55,38 +55,21 @@ class  LocationModel
 
 		];				  						 
 	}
-
-	public function listLocations(){
-		
-				$this->mysqli->multi_query("CALL listLocations()");
-					$res = $this->mysqli->store_result();
-					while($fila = $res->fetch_assoc()){
-						$arreglo[] = $fila;
-					}
-					$res = $arreglo;
-					mysqli_close($this->mysqli);
-					$res = array("message"=>$res, "response"=>true);
-					return $res;	
-			}
 	
-	public function listLodgings(){
-				$this->mysqli->multi_query(" CALL listLodgings()");
-					$res = $this->mysqli->store_result();
-					while($fila = $res->fetch_assoc()){
-						$arreglo[] = $fila;
-					}
-					$res = $arreglo;
-					mysqli_close($this->mysqli);
-					if($res[0]["error"] == "yes"){
-						$res = array("respuesta"=>$res[0]["respuesta"], "error"=>$res[0]["error"]);
-					}else{
-						$res = array("message"=>$res, "error"=>"not", "response"=>true);
-					}
-					return $res;
-					// $res = array("message"=>$res, "response"=>true);
-					// return $res;		
-			}
+	public function listProgrammingCamp(){
 
+		$this->mysqli->multi_query(" CALL listProgrammingCamp()");
+			$res = $this->mysqli->store_result();
+			while($fila = $res->fetch_assoc()){
+				$arreglo[] = $fila;
+			}
+			$res = $arreglo;
+			mysqli_close($this->mysqli);
+			$res = array("message"=>$res, "response"=>true);
+			return $res;	
+	}
+
+	
 	//actualizar
 	public function update($data, $id){
 

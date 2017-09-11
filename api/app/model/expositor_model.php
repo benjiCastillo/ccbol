@@ -68,13 +68,7 @@ class  ExpositorModel
 					$res = array("message"=>$res, "response"=>true);
 					return $res;	
 			}
-
-	//obtener
-	public function getExamen($id){
-
-		return $data = $this->db->from($this->table, $id)
-								->fetch();  						 
-	}
+			
 	//registrar
 	public function insert($data){
 		// $data['password'] = md5($data['password']);

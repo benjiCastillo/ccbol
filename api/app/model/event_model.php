@@ -64,7 +64,7 @@ class  EventModel
 	
 	public function listEvent(){
 
-		$this->mysqli->multi_query(" CALL listEvent()");
+		$this->mysqli->multi_query(" CALL listEvents()");
 			$res = $this->mysqli->store_result();
 			while($fila = $res->fetch_assoc()){
 				$arreglo[] = $fila;
